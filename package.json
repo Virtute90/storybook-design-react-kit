@@ -1,0 +1,57 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/builder-vite": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "accessible-autocomplete": "^2.0.4",
+    "bootstrap-italia": "^2.8.2",
+    "eslint": "^8.57.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.17",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "eslint-plugin-mdx": "^3.1.5",
+    "is-number": "^7.0.0",
+    "react-select": "^4.3.0",
+    "react-stickup": "^1.12.1",
+    "react-toastify": "^7.0.4",
+    "react-transition-group": "^4.4.5",
+    "react-use-navscroll": "0.2.0",
+    "reactstrap": "9.2.2",
+    "webfontloader": "^1.6.28"
+  },
+  "peerDependencies": {
+    "bootstrap-italia": "2.8.2",
+    "react": ">=17.0.2"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
