@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Badge, Button } from "../../src";
 import type { BadgeProps } from "../../src";
+import { Badge, Button } from "../../src";
 
 export default {
     title: "Componenti/Badge",
@@ -32,7 +32,7 @@ export const Esempi = () => (
 
 export const Contatore = () => (
     <Button color="primary">
-        Notifiche{" "}
+        Notifiche
         <Badge color="light" className="text-secondary">
             4
         </Badge>
@@ -41,7 +41,7 @@ export const Contatore = () => (
 
 export const ContatoreTestoAggiuntivo = () => (
     <Button color="primary">
-        Notifiche{" "}
+        Notifiche
         <Badge color="light" className="text-primary">
             9
         </Badge>

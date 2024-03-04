@@ -1,6 +1,11 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
-import { Breadcrumb, Callout, CalloutTitle, CalloutText } from "../Components/Breadcrumb.stories";
+import {
+  Breadcrumb,
+  Callout,
+  CalloutText,
+  CalloutTitle,
+} from "../Components/Breadcrumb.stories";
 
 <Meta title="Documentazione/Menu di navigazione/Breadcrumbs" of={Breadcrumb} />
 
@@ -13,25 +18,30 @@ Le breadcrumb (in italiano: briciole di pane) mostrano la pagina corrente e dann
 Nelle breadcrumb c’è la possibilità di scegliere il carattere da usare come separatore inserendolo all’interno del tag `<span class="separator"/>`.
 
 <div className="docs">
-    <Callout color="success">
-        <CalloutTitle>
-            <span className="text">Accessibilità</span>
-        </CalloutTitle>
-        <CalloutText>
-            Dato che le breadcrumb sono uno strumento di navigazione del sito, è buona idea aggiungere un’etichetta significativa come{" "}
-            <Code>aria-label="Percorso di navigazione"</Code> per descrivere il tipo di navigazione fornito nell’elemento <Code>&lt;nav&gt;</Code>. L'attributo{" "}
-            <Code>aria-current="page"</Code> viene invece inserito in automatico per l'elemento <Code>BreadcrumbItem</Code> segnato come `active` per indicare
-            che rappresenta la pagina corrente.
-        </CalloutText>
-        <CalloutText>
-            Per maggiori informazioni, guarda le{" "}
-            <a href="https://www.w3.org/TR/wai-aria-practices/#breadcrumb">linee guida WAI-ARIA per la creazione di breadcrumb</a>.
-        </CalloutText>
-    </Callout>
+  <Callout color="success">
+    <CalloutTitle>
+      <span className="text">Accessibilità</span>
+    </CalloutTitle>
+    <CalloutText>
+      Dato che le breadcrumb sono uno strumento di navigazione del sito, è buona
+      idea aggiungere un’etichetta significativa come
+      <Code>aria-label="Percorso di navigazione"</Code> per descrivere il tipo di
+      navigazione fornito nell’elemento <Code>&lt;nav&gt;</Code>. L'attributo
+      <Code>aria-current="page"</Code> viene invece inserito in automatico per
+      l'elemento <Code>BreadcrumbItem</Code> segnato come `active` per indicare
+      che rappresenta la pagina corrente.
+    </CalloutText>
+    <CalloutText>
+      Per maggiori informazioni, guarda le
+      <a href="https://www.w3.org/TR/wai-aria-practices/#breadcrumb">
+        linee guida WAI-ARIA per la creazione di breadcrumb.
+      </a>
+    </CalloutText>
+  </Callout>
 </div>
 
 <Canvas>
-    <Story id="componenti-breadcrumbs--esempi" />
+  <Story id="componenti-breadcrumbs--esempi" />
 </Canvas>
 
 ### Con icona
@@ -39,7 +49,7 @@ Nelle breadcrumb c’è la possibilità di scegliere il carattere da usare come 
 Per aggiungere un icona all’elemento `BreadcrumbItem` è sufficiente inserire un componente `Icon` corrispondente prima del tag `<a/>` con l’icona che si intende visualizzare.
 
 <Canvas>
-    <Story id="componenti-breadcrumbs--con-icone" />
+  <Story id="componenti-breadcrumbs--con-icone" />
 </Canvas>
 
 ### Su sfondo scuro
@@ -47,7 +57,7 @@ Per aggiungere un icona all’elemento `BreadcrumbItem` è sufficiente inserire 
 Per la versione su sfondo scuro delle breadcrumbs è sufficiente aggiungere l'attributo `dark` al componente `Breadcrumb`.
 
 <Canvas>
-    <Story id="componenti-breadcrumbs--su-sfondo-scuro" />
+  <Story id="componenti-breadcrumbs--su-sfondo-scuro" />
 </Canvas>
 
 ## Argomenti componente

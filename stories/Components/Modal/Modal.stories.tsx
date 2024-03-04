@@ -1,26 +1,26 @@
+import { Link } from "@storybook/components";
 import React, { useState } from "react";
 import {
     Button,
-    Modal,
+    Col,
+    Container,
     FormGroup,
+    Icon,
     Input,
-    ModalHeader,
+    Label,
+    LinkList,
+    LinkListItem,
+    Modal,
     ModalBody,
     ModalFooter,
+    ModalHeader,
+    Popover,
+    PopoverBody,
+    PopoverHeader,
+    Row,
     TextArea,
     UncontrolledTooltip,
-    Popover,
-    PopoverHeader,
-    PopoverBody,
-    Container,
-    Row,
-    Col,
-    Label,
-    LinkListItem,
-    LinkList,
-    Icon,
 } from "../../../src";
-import { Link } from "@storybook/components";
 
 export default {
     title: "Componenti/Modal",
@@ -382,7 +382,7 @@ export const ModaleConContenutoScrollabile = () => {
                         aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                        id est laborum.{" "}
+                        id est laborum.
                     </p>
                 </ModalBody>
                 <ModalFooter>
@@ -670,10 +670,10 @@ export const TooltipAndPopover = () => {
                 <ModalBody>
                     <h5>Popover in una modale</h5>
                     <p>
-                        Questo{" "}
+                        Questo
                         <Button color="secondary" id="Example" onClick={() => togglePopover(!popoverOpen)}>
                             Pulsante
-                        </Button>{" "}
+                        </Button>
                         attiva un popover al click.
                         <Popover placement="right" isOpen={popoverOpen} target="Example" toggle={() => togglePopover(!popoverOpen)}>
                             <PopoverHeader>Titolo del popover</PopoverHeader>
@@ -685,11 +685,11 @@ export const TooltipAndPopover = () => {
                     <p>
                         <Link href="#" title="Tooltip" id="Example1">
                             Questo link
-                        </Link>{" "}
-                        e{" "}
+                        </Link>
+                        e
                         <Link href="#" title="Tooltip" id="Example2">
                             questo link
-                        </Link>{" "}
+                        </Link>
                         attivano un tooltip al passaggio del mouse.
                         <UncontrolledTooltip placement="top" target="Example1">
                             Tooltip

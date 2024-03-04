@@ -1,5 +1,10 @@
-import { Meta, Canvas, Story } from "@storybook/blocks";
-import { Callout, CalloutText, CalloutTitle, Table } from "../Components/Tables.stories";
+import { Canvas, Meta, Story } from "@storybook/blocks";
+import {
+  Callout,
+  CalloutText,
+  CalloutTitle,
+  Table,
+} from "../Components/Tables.stories";
 
 <Meta title="Documentazione/Organizzare i contenuti/Tabelle" of={Table} />
 
@@ -12,13 +17,13 @@ import { Callout, CalloutText, CalloutTitle, Table } from "../Components/Tables.
 Usando il markup di base della tabella, ecco come appaiono le tabelle che utilizzano il componente `Table`. **Tutti gli stili di tabella sono ereditari**, il che significa che tutte le tabelle nidificate saranno stilizzate nello stesso modo del genitore.
 
 <Canvas>
-    <Story id="componenti-tables--table-base" />
+  <Story id="componenti-tables--table-base" />
 </Canvas>
 
 Puoi anche invertire i colori, con testo chiaro su sfondi scuri con l'attributo `dark`.
 
 <Canvas>
-    <Story id="componenti-tables--table-dark" />
+  <Story id="componenti-tables--table-dark" />
 </Canvas>
 
 ## Opzioni delle intestazioni di tabella
@@ -26,7 +31,7 @@ Puoi anche invertire i colori, con testo chiaro su sfondi scuri con l'attributo 
 Utilizzare le classi di modifica `.table-light` o `.table-dark` per far apparire `<thead>, <tbody>, <tfoot>, <tr>, <th> e <td>`. chiaro o grigio scuro.
 
 <Canvas>
-    <Story id="componenti-tables--table-thead" />
+  <Story id="componenti-tables--table-thead" />
 </Canvas>
 
 ## Righe striate
@@ -34,7 +39,7 @@ Utilizzare le classi di modifica `.table-light` o `.table-dark` per far apparire
 Usa l'attributo `striped` per aggiungere delle striature zebrate ad ogni riga della tabella contenute in `<tbody/>`.
 
 <Canvas>
-    <Story id="componenti-tables--table-striped" />
+  <Story id="componenti-tables--table-striped" />
 </Canvas>
 
 ## Tabella con bordi
@@ -42,7 +47,7 @@ Usa l'attributo `striped` per aggiungere delle striature zebrate ad ogni riga de
 Usa l'attributo `bordered` per avere i bordi a tutti i lati della tabella e su tutte le celle.
 
 <Canvas>
-    <Story id="componenti-tables--table-bordered" />
+  <Story id="componenti-tables--table-bordered" />
 </Canvas>
 
 ## Tabella senza bordi
@@ -50,7 +55,7 @@ Usa l'attributo `bordered` per avere i bordi a tutti i lati della tabella e su t
 Usa l'attributo `borderless` per una tabella senza bordi.
 
 <Canvas>
-    <Story id="componenti-tables--table-borderless" />
+  <Story id="componenti-tables--table-borderless" />
 </Canvas>
 
 ## Righe ed hover
@@ -58,7 +63,7 @@ Usa l'attributo `borderless` per una tabella senza bordi.
 Usa l'attributo `hover` per abilitare lo stato hover sulle righe della tabella contenute in `<tbody/>`.
 
 <Canvas>
-    <Story id="componenti-tables--table-hover" />
+  <Story id="componenti-tables--table-hover" />
 </Canvas>
 
 ## Tabella compatta
@@ -66,7 +71,7 @@ Usa l'attributo `hover` per abilitare lo stato hover sulle righe della tabella c
 Aggiungi l'attributo `size="sm"` per rendere le tabelle più compatte dimezzando il cell padding.
 
 <Canvas>
-    <Story id="componenti-tables--table-compact" />
+  <Story id="componenti-tables--table-compact" />
 </Canvas>
 
 ## Classi contestuali
@@ -74,21 +79,26 @@ Aggiungi l'attributo `size="sm"` per rendere le tabelle più compatte dimezzando
 Usa le classi contestuali per colorare le righe delle tabelle o le singole celle.
 
 <Canvas>
-    <Story id="componenti-tables--table-contextual" />
+  <Story id="componenti-tables--table-contextual" />
 </Canvas>
 
 <div className="docs">
-    <Callout color="success">
-        <CalloutTitle>
-            <span className="text">Trasmettere significato alle tecnologie assistive</span>
-        </CalloutTitle>
-        <CalloutText>
-            L'uso del colore per aggiungere un significato fornisce solo un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie assistive –
-            come gli screen reader. Assicurati che le informazioni denotate dal colore siano rese disponibili anche dal contenuto stesso (es.: il testo
-            visibile), o siano incluse attraverso mezzi alternativi, come testo aggiuntivo nascosto con la classe
-            <code>.visually-hidden</code>.
-        </CalloutText>
-    </Callout>
+  <Callout color="success">
+    <CalloutTitle>
+      <span className="text">
+        Trasmettere significato alle tecnologie assistive
+      </span>
+    </CalloutTitle>
+    <CalloutText>
+      L'uso del colore per aggiungere un significato fornisce solo
+      un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie
+      assistive – come gli screen reader. Assicurati che le informazioni
+      denotate dal colore siano rese disponibili anche dal contenuto stesso
+      (es.: il testo visibile), o siano incluse attraverso mezzi alternativi,
+      come testo aggiuntivo nascosto con la classe
+      <code>.visually-hidden</code>.
+    </CalloutText>
+  </Callout>
 </div>
 
 ## Captions
@@ -96,7 +106,7 @@ Usa le classi contestuali per colorare le righe delle tabelle o le singole celle
 Un `<caption/>` funziona come un’intestazione per una tabella. Aiuta gli utenti con screen reader a trovare una tabella e capire di cosa si tratta e decidere se vogliono leggerla.
 
 <Canvas>
-    <Story id="componenti-tables--table-captions" />
+  <Story id="componenti-tables--table-captions" />
 </Canvas>
 
 # Tabelle responsive
@@ -104,25 +114,29 @@ Un `<caption/>` funziona come un’intestazione per una tabella. Aiuta gli utent
 Le tabelle responsive consentono di scorrere le tabelle orizzontalmente con facilità. Rendi ogni tabella responsive su tutti i viewports aggiungendo al componente `Table` l'attributo `responsive`. Oppure, scegli un breakpoint massimo con il quale ottenere una tabella responsive combinando gli attributi `responsive` e `size`.
 
 <div className="docs">
-    <Callout color="primary">
-        <CalloutTitle>
-            <span className="text">Ritaglio / troncamento verticale</span>
-        </CalloutTitle>
-        <CalloutText>
-            Le tabelle responsive fanno uso di <code>overflow-y: hidden</code>, che rimuove qualsiasi contenuto che va oltre i bordi inferiore o superiore della
-            tabella. In particolare, questo può ritagliare i menu a discesa e altri widget di terze parti.
-        </CalloutText>
-    </Callout>
+  <Callout color="primary">
+    <CalloutTitle>
+      <span className="text">Ritaglio / troncamento verticale</span>
+    </CalloutTitle>
+    <CalloutText>
+      Le tabelle responsive fanno uso di <code>overflow-y: hidden</code>, che
+      rimuove qualsiasi contenuto che va oltre i bordi inferiore o superiore
+      della tabella. In particolare, questo può ritagliare i menu a discesa e
+      altri widget di terze parti.
+    </CalloutText>
+  </Callout>
 </div>
 
 <div className="docs">
-    <Callout color="primary">
-        <CalloutText>
-            Nota che in quanto i browser non supportano attualmente i range context queries, stiamo aggirando i limiti dei prefissi <code>min-</code> and{" "}
-            <code>max-</code> e viewports con larghezze frazionarie (che possono verificarsi in determinate condizioni su dispositivi ad alta risoluzione, ad
-            esempio) utilizzando valori con maggiore precisione per questi confronti.
-        </CalloutText>
-    </Callout>
+  <Callout color="primary">
+    <CalloutText>
+      Nota che in quanto i browser non supportano attualmente i range context
+      queries, stiamo aggirando i limiti dei prefissi <code>min-</code> and
+      <code>max-</code> e viewports con larghezze frazionarie (che possono verificarsi
+      in determinate condizioni su dispositivi ad alta risoluzione, ad esempio) utilizzando
+      valori con maggiore precisione per questi confronti.
+    </CalloutText>
+  </Callout>
 </div>
 
 ## Sempre responsive
@@ -130,7 +144,7 @@ Le tabelle responsive consentono di scorrere le tabelle orizzontalmente con faci
 Attraverso ogni breakpoint, usa l'attributo `responsive` per tabelle con scorrimento verticale.
 
 <Canvas>
-    <Story id="componenti-tables--table-responsive" />
+  <Story id="componenti-tables--table-responsive" />
 </Canvas>
 
 ## Breakpoint specifici
@@ -138,5 +152,5 @@ Attraverso ogni breakpoint, usa l'attributo `responsive` per tabelle con scorrim
 Combina gli attributi `responsive` e `size` come necessario per creare tabelle responsive fino a un punto di interruzione particolare. Da quel punto di interruzione in su, la tabella si comporterà normalmente e non scorrerà orizzontalmente.
 
 <Canvas>
-    <Story id="componenti-tables--table-breakpoint" />
+  <Story id="componenti-tables--table-breakpoint" />
 </Canvas>

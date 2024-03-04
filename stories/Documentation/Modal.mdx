@@ -1,6 +1,14 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
-import { Modal, ModalHeader, ModalBody, ModalFooter, Callout, CalloutTitle, CalloutText } from "../Components/Modal/Modal.stories";
+import {
+  Callout,
+  CalloutText,
+  CalloutTitle,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from "../Components/Modal/Modal.stories";
 
 <Meta title="Documentazione/Componenti/Modale" component={Modal} />
 
@@ -10,38 +18,47 @@ Le finestre modali si possono usare per mostrare contenuti in evidenza, notifich
 Cliccando sulla parte che oscura la pagina (il cosiddetto `backdrop` della modale), questa verrà chiusa automativamente.
 
 <div className="docs">
-    <Callout color="warning">
-        <CalloutTitle>
-            <span className="text">Accessibilità</span>
-        </CalloutTitle>
-        <CalloutText>
-            Per tutti i componenti Modale viene automaticamente aggiunto l'attributo <Code>role="dialog"</Code> e <Code>role="document"</Code> all'elemento
-            contenitore. (
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role" target="_blank" rel="noreferrer">
-                maggiori info su MDN
-            </a>
-            ).
-        </CalloutText>
-        <CalloutText>
-            L’attributo <Code>labelledby="..."</Code> deve essere assegnato al componente <Code>Modal</Code> ed usare come valore l'ID del componente{" "}
-            <Code>ModalHeader</Code>.(
-            <a
-                href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"
-                target="_blank"
-                rel="noreferrer"
-            >
-                maggiori info su MDN
-            </a>
-            ).
-        </CalloutText>
-        <CalloutText>
-            Approfondisci l’argomento sul sito delle{" "}
-            <a href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal" target="_blank" rel="noreferrer">
-                WAI-ARIA Authoring Practices
-            </a>
-            .
-        </CalloutText>
-    </Callout>
+  <Callout color="warning">
+    <CalloutTitle>
+      <span className="text">Accessibilità</span>
+    </CalloutTitle>
+    <CalloutText>
+      Per tutti i componenti Modale viene automaticamente aggiunto l'attributo{" "}
+      <Code>role="dialog"</Code> e <Code>role="document"</Code> all'elemento
+      contenitore. (
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role"
+        target="_blank"
+        rel="noreferrer"
+      >
+        maggiori info su MDN
+      </a>
+      ).
+    </CalloutText>
+    <CalloutText>
+      L’attributo <Code>labelledby="..."</Code> deve essere assegnato al
+      componente <Code>Modal</Code> ed usare come valore l'ID del componente
+      <Code>ModalHeader</Code>.(
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute"
+        target="_blank"
+        rel="noreferrer"
+      >
+        maggiori info su MDN
+      </a>
+      ).
+    </CalloutText>
+    <CalloutText>
+      Approfondisci l’argomento sul sito delle
+      <a
+        href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal"
+        target="_blank"
+        rel="noreferrer"
+      >
+        WAI-ARIA Authoring Practices.
+      </a>
+    </CalloutText>
+  </Callout>
 </div>
 
 ### Componenti della modale
@@ -49,13 +66,13 @@ Cliccando sulla parte che oscura la pagina (il cosiddetto `backdrop` della modal
 In basso un esempio di una modale statica, senza componente principale `Modal`. Sono inclusi l’intestazione, il corpo, e il footer della modale come mostrato di seguito.
 
 <Canvas>
-    <Story id="componenti-modal--esempio-base" />
+  <Story id="componenti-modal--esempio-base" />
 </Canvas>
 
 È richiesta l’inclusione di intestazioni o elementi con funzione di chiusura della modale stessa.
 
 <Canvas>
-    <Story id="componenti-modal--modale-base" />
+  <Story id="componenti-modal--modale-base" />
 </Canvas>
 
 ### Modale con bottone di chiusura
@@ -64,7 +81,7 @@ Per chiudere la modale, si può utilizzare un bottone: il componente aggiungerà
 Per mostrare l'icona di chiusura, passare una funzione `toggle` al componente `ModalHeader` al fine di gestirne il comportamento quando l'utente cliccherà.
 
 <Canvas>
-    <Story id="componenti-modal--modale-base-con-bottone-chiusura" />
+  <Story id="componenti-modal--modale-base-con-bottone-chiusura" />
 </Canvas>
 
 ### Modale con icona
@@ -72,7 +89,7 @@ Per mostrare l'icona di chiusura, passare una funzione `toggle` al componente `M
 E’ possibie inserire un icona di alert (o altro tipo) affiancandola all’intestazione.
 
 <Canvas>
-    <Story id="componenti-modal--modale-con-icona" />
+  <Story id="componenti-modal--modale-con-icona" />
 </Canvas>
 
 ### Modale con radiobuttons
@@ -80,7 +97,7 @@ E’ possibie inserire un icona di alert (o altro tipo) affiancandola all’inte
 All’interno della modale è possibile inserire elementi form. Di seguito una modale con un elenco di radio button.
 
 <Canvas>
-    <Story id="componenti-modal--modale-con-form-inputs" />
+  <Story id="componenti-modal--modale-con-form-inputs" />
 </Canvas>
 
 ### Modale con Link List
@@ -88,7 +105,7 @@ All’interno della modale è possibile inserire elementi form. Di seguito una m
 All’interno della modale è possibile inserire delle Liste di link. Per formattare correttamente il contenuto di questa modale, aggiungere l'attributo `withLinkList` al componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--modale-con-link-list" />
+  <Story id="componenti-modal--modale-con-link-list" />
 </Canvas>
 
 ### Modale Popconfirm
@@ -96,7 +113,7 @@ All’interno della modale è possibile inserire delle Liste di link. Per format
 La Modale di tipo Popconfirm può essere utilizzata per brevi messaggi di conferma. Questo particolare design si ottiene applicando l'attributo `popConfirm` al componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--modale-pop-confirm" />
+  <Story id="componenti-modal--modale-pop-confirm" />
 </Canvas>
 
 ### Scroll di contenuti lunghi
@@ -104,7 +121,7 @@ La Modale di tipo Popconfirm può essere utilizzata per brevi messaggi di confer
 Quando le modali diventano troppo lunghe per il viewport o il dispositivo dell’utente, scorrono indipendentemente dalla pagina stessa.
 
 <Canvas>
-    <Story id="componenti-modal--scroll-di-contenuti-lunghi" />
+  <Story id="componenti-modal--scroll-di-contenuti-lunghi" />
 </Canvas>
 
 #### Scroll di contenuti all’interno della modale
@@ -112,7 +129,7 @@ Quando le modali diventano troppo lunghe per il viewport o il dispositivo dell�
 Si può scelgliere di utilizzare uno scroll interno alla madole, mantenendo sempre visibile l’intestazione ed il footer della modale stessa aggiungendo l'attributo `scrollable` al componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--modale-con-contenuto-scrollabile" />
+  <Story id="componenti-modal--modale-con-contenuto-scrollabile" />
 </Canvas>
 
 ### Posizionamento
@@ -122,7 +139,7 @@ Si può scelgliere di utilizzare uno scroll interno alla madole, mantenendo semp
 Aggiungi l'attributo `centered` al componente `Modal` per centrare verticalmente la modale.
 
 <Canvas>
-    <Story id="componenti-modal--centratura-verticale" />
+  <Story id="componenti-modal--centratura-verticale" />
 </Canvas>
 
 #### Allineamento a sinistra
@@ -130,7 +147,7 @@ Aggiungi l'attributo `centered` al componente `Modal` per centrare verticalmente
 Per aprire la modale da sinistra a destra aggiungere l'attributo `align` con valore `"left"` al componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--allineamento-a-sinistra" />
+  <Story id="componenti-modal--allineamento-a-sinistra" />
 </Canvas>
 
 #### Allineamento a destra
@@ -138,7 +155,7 @@ Per aprire la modale da sinistra a destra aggiungere l'attributo `align` con val
 Per aprire la modale da sinistra a destra aggiungere l'attributo `align` con valore `"left"` al componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--allineamento-a-destra" />
+  <Story id="componenti-modal--allineamento-a-destra" />
 </Canvas>
 
 ### Rimuovere l’animazione
@@ -146,7 +163,7 @@ Per aprire la modale da sinistra a destra aggiungere l'attributo `align` con val
 Per avere modali che appaiono semplicemente senza dissolvenza, imposta l'attributo `fade` a `false` nel componente `Modal`.
 
 <Canvas>
-    <Story id="componenti-modal--rimuovere-lanimazione" />
+  <Story id="componenti-modal--rimuovere-lanimazione" />
 </Canvas>
 
 ### Dimensioni opzionali
@@ -154,7 +171,7 @@ Per avere modali che appaiono semplicemente senza dissolvenza, imposta l'attribu
 Le modali hanno due dimensioni opzionali, disponibili tramite l'attributo `size` del componente `Modal`. Queste dimensioni entrano in gioco in determinati breakpoint per evitare barre di scorrimento orizzontali su finestre più strette.
 
 <Canvas>
-    <Story id="componenti-modal--dimensioni" />
+  <Story id="componenti-modal--dimensioni" />
 </Canvas>
 
 ## Argomenti componente
