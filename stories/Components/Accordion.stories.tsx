@@ -1,9 +1,13 @@
+import type { Meta } from '@storybook/react';
 import React, { useState } from "react";
-import { Accordion, AccordionHeader, AccordionItem, AccordionBody, Button, Card, CardBody } from "../../src";
+import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "../../src";
 
-export default {
+const meta: Meta<typeof Accordion> = {
     title: "Componenti/Accordion",
+    component: Accordion,
 };
+
+export default meta;
 
 export const GruppiDiElementiRichiudibili = () => {
     const [collapseElementOpen, setCollapseElement] = useState("");
