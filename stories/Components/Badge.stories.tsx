@@ -1,11 +1,16 @@
+import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-
 import type { BadgeProps } from "../../src";
 import { Badge, Button } from "../../src";
 
-export default {
-    title: "Componenti/Badge",
+const meta: Meta<typeof Button> = {
+    title: "Documentazione/Componenti/Badge",
+    component: Button,
 };
+
+export default meta;
+
+type Story = StoryObj<typeof Button>;
 
 export const Esempi = () => (
     <div>
@@ -110,9 +115,6 @@ const EsempiInterattiviComponent = ({ color, pill, label }: BadgeProps & { label
     );
 };
 
-// export const _Esempi = EsempiComponent
-
-// export const _EsempiInterattivi = EsempiInterattiviComponent
 EsempiInterattiviComponent.args = {
     color: "info",
     pill: true,
@@ -126,11 +128,3 @@ EsempiInterattiviComponent.argTypes = {
         },
     },
 };
-
-// export const _Contatore = ContatoreComponent
-
-// export const _Variazioni = VariazioniComponent
-
-// export const _BordiArrotondati = ArrotondatiComponent
-
-// export const ConLink = LinkComponent
