@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "../../src";
 
 const meta: Meta<typeof Accordion> = {
-    title: "Componenti/Accordion",
+    title: "Documentazione/Componenti/Accordion",
     component: Accordion,
 };
 
@@ -43,8 +43,6 @@ export const GruppiDiElementiRichiudibili = () => {
         </Accordion>
     );
 };
-
-GruppiDiElementiRichiudibili.storyName = "Gruppi di elementi richiudibili";
 
 export const _Accordion = () => {
     const [collapseElementOpen, setCollapseElement] = useState("");

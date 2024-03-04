@@ -1,16 +1,18 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
+import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { Meta, Story } from "@storybook/react";
-import { Alert, AlertProps } from "../../src";
+import { Alert } from "../../src";
 
 const meta: Meta = {
-    title: "Componenti/Alert",
+    title: "Documentazione/Componenti/Alert",
     component: Alert,
 };
 
 export default meta;
 
-export const _Esempi: Story<AlertProps> = () => (
+type Story = StoryObj<typeof Alert>;
+
+export const _Esempi: Story = () => (
     <div>
         <Alert color="info">
             Questo è un alert di tipo <b>info</b>!
@@ -28,7 +30,7 @@ export const _Esempi: Story<AlertProps> = () => (
 );
 _Esempi.args = {};
 
-export const _EsempiInterattivi: Story<AlertProps> = ({ ...args }) => (
+export const _EsempiInterattivi: Story = ({ ...args }) => (
     <Alert {...args}>
         Questo è un alert di <b>{args.color}</b>!
     </Alert>
@@ -46,18 +48,18 @@ _EsempiInterattivi.argTypes = {
     },
 };
 
-export const _LinkEvidenziato: Story<AlertProps> = () => (
+export const _LinkEvidenziato: Story = () => (
     <Alert color="danger">
-        Questo è un alert con un esempio di{" "}
+        Questo è un alert con un esempio di
         <a href="#" className="alert-link">
             link
-        </a>{" "}
+        </a>
         evidenziato.
     </Alert>
 );
 _LinkEvidenziato.args = {};
 
-export const _ContenutoAggiuntivo: Story<AlertProps> = () => (
+export const _ContenutoAggiuntivo: Story = () => (
     <Alert>
         <h4 className="alert-heading">Avviso di successo!</h4>
         <p>
@@ -70,7 +72,7 @@ export const _ContenutoAggiuntivo: Story<AlertProps> = () => (
 );
 _ContenutoAggiuntivo.args = {};
 
-export const ChiusuraControllata: Story<AlertProps> = () => {
+export const ChiusuraControllata: Story = () => {
     const [open, setOpen] = useState(true);
 
     const closeAlert = () => setOpen(false);

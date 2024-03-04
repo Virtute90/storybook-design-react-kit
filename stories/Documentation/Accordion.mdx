@@ -1,25 +1,21 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
-import * as AccordionStories from "../Components/Accordion.stories";
 import {
   Accordion,
-  AccordionHeader,
   AccordionBody,
+  AccordionHeader,
   AccordionItem,
   Callout,
-  CalloutTitle,
   CalloutText,
+  CalloutTitle,
 } from "../../src";
+import * as AccordionStories from "../Components/Accordion.stories";
 
-<Meta title="Documentazione/Componenti/Accordion" of={AccordionStories} />
+<Meta of={AccordionStories} />
 
 # Accordion
 
 ## Attiva/disattiva la visibilità di contenuti
-
-Per ottimizzare l’ingombro dei contenuti di una pagina si possono usare degli elementi richiudibili (in gergo definiti _collassabili_ o _collapse_), che possono essere attivati indipendentemente l’uno dall’altro oppure in modo esclusivo con l’attivazione di solo un blocco alla volta (in gergo definiti _fisarmoniche_ o _accordion_).
-
-### Come funziona
 
 Per ottimizzare l’ingombro dei contenuti di una pagina a volte è necessario usare degli elementi richiudibili (in gergo definiti collassabili o collapse), che possono essere attivati indipendentemente l’uno dall’altro oppure in modo esclusivo con l’attivazione di solo un blocco alla volta (in gergo definiti fisarmoniche o accordion).
 
@@ -43,9 +39,7 @@ Gli elementi richiudibili sono molto spesso mostrati in gruppo, tipicamente usat
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-accordion--gruppi-di-elementi-richiudibili" />
-</Canvas>
+<Canvas of={AccordionStories.GruppiDiElementiRichiudibili} />
 
 <div className="docs">
   <Callout color="success">
@@ -59,8 +53,8 @@ Gli elementi richiudibili sono molto spesso mostrati in gruppo, tipicamente usat
       tecnologie assistive simili. Se l’elemento comprimibile è chiuso in modo
       predefinito, l’attributo sull’elemento di controllo dovrebbe avere il
       valore <Code>aria-expanded="false"</Code>. Se imposti l’elemento
-      comprimibile aperto in modo predefinito, sul controllo invece imposta{" "}
-      <Code>aria-expanded="true"</Code>. Il componente{" "}
+      comprimibile aperto in modo predefinito, sul controllo invece imposta
+      <Code>aria-expanded="true"</Code>. Il componente
       <Code>AccordionHeader</Code> applica automaticamente questo attributo, ma
       qualora venisse usato un componente di controllo esterno - come un
       `Button` del primo esempio - sarà necessario aggiungerlo manualmente. Se
@@ -75,9 +69,7 @@ Gli elementi richiudibili sono molto spesso mostrati in gruppo, tipicamente usat
 
 Per ottenere un gruppo di elementi _mutualmente_ richiudibili (o _accordion_), è sufficiente utilizzare uno stato con singolo id da verificare per ciascun elemento come da esempio:
 
-<Canvas>
-  <Story id="componenti-accordion--accordion" />
-</Canvas>
+<Canvas of={AccordionStories._Accordion} />
 
 ### Accordion annidati
 
@@ -95,9 +87,7 @@ Più gruppi di collapse possono essere annidati.
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-accordion--accordion-annidati" />
-</Canvas>
+<Canvas of={AccordionStories.AccordionAnnidati} />
 
 ### Sfondo primario
 
@@ -107,9 +97,7 @@ Applicando attributi aggiuntivi al componente `Accordion` è possibile utilizzar
 
 Aggiungere l'attributo `background="active"` al componente `Accordion` per ottenere header con sfondo di colore primario quando questi sono attivi e il contenuto relativo è visibile.
 
-<Canvas>
-  <Story id="componenti-accordion--header-attivi" />
-</Canvas>
+<Canvas of={AccordionStories.HeaderAttivi} />
 
 #### Hover degli Header
 
@@ -123,9 +111,7 @@ Aggiungere l'attributo `background="hover"` al componente `Accordion` per ottene
 
 Aggiungere l'attributo `iconLeft={true}` al 11componente `Accordion` per ottenere una variante in cui l’icona chevron che indica lo stato di apertura è sostituita da segni meno/più allineati a sinistra del titolo dell’header.
 
-<Canvas>
-  <Story id="componenti-accordion--icona-sinistra" />
-</Canvas>
+<Canvas of={AccordionStories.IconaSinistra} />
 
 ## Argomenti componente
 

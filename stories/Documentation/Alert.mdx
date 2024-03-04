@@ -1,76 +1,70 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
-import { Alert, Callout, CalloutTitle, CalloutText } from "../Components/Alert.stories";
+import { Alert, Callout, CalloutText, CalloutTitle } from "../../src";
+import * as AlertStories from "../Components/Alert.stories";
 
 <Meta
-    title="Documentazione/Componenti/Alert"
-    of={Alert}
-    argTypes={{
-        color: {
-            control: {
-                type: "select",
-                options: ["info", "success", "danger", "warning"],
-            },
-        },
-    }}
+  of={AlertStories}
+  argTypes={{
+    color: {
+      control: {
+        type: "select",
+        options: ["info", "success", "danger", "warning"],
+      },
+    },
+  }}
 />
 
 # Alert
 
 Gli avvisi sono disponibili in quattro tipologie diverse e per qualsiasi lunghezza di testo. Inoltre possono prevedere un pulsante di chiusura
 
-<Canvas>
-    <Story id="componenti-alert--esempi" />
-</Canvas>
+<Canvas of={AlertStories._Esempi} />
 
 <div className="docs">
-    <Callout color="success">
-        <CalloutTitle>
-            <span className="text">Trasmettere significato alle tecnologie assistive</span>
-        </CalloutTitle>
-        <CalloutText>
-            L’uso del colore per aggiungere un significato fornisce solo un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie assistive –
-            come gli screen reader. Assicurati che le informazioni denotate dal colore siano rese disponibili anche dal contenuto stesso (es.: il testo
-            visibile), o siano incluse attraverso mezzi alternativi, come testo aggiuntivo nascosto con la classe
-            <Code>.visually-hidden</Code>.
-        </CalloutText>
-    </Callout>
+  <Callout color="success">
+    <CalloutTitle>
+      <span className="text">
+        Trasmettere significato alle tecnologie assistive
+      </span>
+    </CalloutTitle>
+    <CalloutText>
+      L’uso del colore per aggiungere un significato fornisce solo
+      un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie
+      assistive – come gli screen reader. Assicurati che le informazioni
+      denotate dal colore siano rese disponibili anche dal contenuto stesso
+      (es.: il testo visibile), o siano incluse attraverso mezzi alternativi,
+      come testo aggiuntivo nascosto con la classe
+      <Code>.visually-hidden</Code>.
+    </CalloutText>
+  </Callout>
 </div>
 
 ## Link evidenziato
 
 Usa la classe `.alert-link` per dare risalto ad un link all'interno dell'alert.
 
-<Canvas>
-    <Story id="componenti-alert--link-evidenziato" />
-</Canvas>
+<Canvas of={AlertStories._LinkEvidenziato} />
 
 ## Contenuto aggiuntivo
 
 I messaggi di avviso possono avere del contenuto HTML aggiuntivo come degli heading, paragrafi e divisori.
 
-<Canvas>
-    <Story id="componenti-alert--contenuto-aggiuntivo" />
-</Canvas>
-
+<Canvas of={AlertStories._ContenutoAggiuntivo} />
 ## Esempio Interattivo
 
-<Canvas>
-    <Story id="componenti-alert--esempi-interattivi" />
-</Canvas>
+<Canvas of={AlertStories._EsempiInterattivi} />
 
 ## Chiusura
 
 È possibile eliminare qualsiasi avviso mediante un pulsante di chiusura:
 
--   Definisci una funzione che chiuda l'alert controllando la sua prop `isOpen`
--   Passa la funzione alla prop `toggle` del componente
+- Definisci una funzione che chiuda l'alert controllando la sua prop `isOpen`
+- Passa la funzione alla prop `toggle` del componente
 
 Clicca sul pulsante di chiusura per vedere la funzionalità di rimozione altert in azione:
 
-<Canvas>
-    <Story id="componenti-alert--chiusura-controllata" />
-</Canvas>
+<Canvas of={AlertStories._EsempiInterattivi} />
 
 ## Argomenti componente
 
