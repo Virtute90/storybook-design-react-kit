@@ -1,10 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
+import { AvatarGroupContainer, AvatarIcon, Dropdown, DropdownMenu, DropdownToggle, Icon, LinkList, LinkListItem } from "../../../src";
 
-import { AvatarIcon, AvatarGroupContainer, Icon, LinkListItem, Dropdown, LinkList, DropdownMenu, DropdownToggle } from "../../../src";
-
-export default {
+const meta: Meta<typeof AvatarGroupContainer> = {
     title: "Componenti/Avatar/Avatar groups Overlapping",
+    component: AvatarGroupContainer,
 };
+
+export default meta;
 
 export const SmallOverlappingAvatars = () => {
     return (

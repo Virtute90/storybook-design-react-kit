@@ -13,6 +13,9 @@ import {
   CalloutTitle,
 } from "../../src";
 import * as AvatarStories from "../Components/Avatar/Avatar.stories";
+import * as AvatarBehaviourStories from "../Components/Avatar/AvatarBehaviour.stories";
+import * as AvatarGroupStories from "../Components/Avatar/AvatarGroupsList.stories";
+import * as AvatarGroupOverlappingStories from "../Components/Avatar/AvatarGroupsOverlapping.stories";
 
 <Meta of={AvatarStories} />
 
@@ -60,9 +63,7 @@ Gli Avatar sono disponibili in sei diverse dimensioni:
 
 L’Avatar ridimensiona automaticamente l’immagine adattandola al formato circolare e centrandola. Si consiglia in ogni caso di utilizzare immagini delle dimensioni corrette.
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-with-image" />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithImage} />
 
 ### Avatar con testo
 
@@ -78,33 +79,24 @@ La versione con testo contiene le iniziali dell’utente (una sola nel caso dell
 
 In questi casi il testo sarà di colore bianco.
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-with-text" />
-</Canvas>
-
+<Canvas of={AvatarStories.AvatarWithText} />
 ### Avatar con icona
 
 Per utilizzare un’icona all’interno degli Avatar è sufficiente includere il codice dell’icona prescelta dalla [libreria icone](?path=/docs/documentazione-utilities-icone--page#lista-delle-icone-disponibili) e indicarne il colore con una delle classi disponibili.
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-with-icon" />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithIcon} />
 
 ### Avatar Link
 
 Per associare un Avatar ad una navigazione, è possible inserire componenti di navigazione al suo interno, oppure sfruttare l'attributo `href`:
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-link" />
-</Canvas>
+<Canvas of={AvatarStories.AvatarLink} />
 
 #### Avatar Link con Tooltip
 
 E’ possibile associare un Tooltip con maggiori informazioni relative all’utente o all’azione associata utilizzando il componente `Tooltip` del kit.
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-link-with-tooltip" />
-</Canvas>
+<Canvas of={AvatarStories.AvatarLinkWithTooltip} />
 
 ## Gruppi di Avatar
 
@@ -118,17 +110,13 @@ Utilizzando un componente `LinkList` con l'attributo `avatar` si ottiene una lis
 
 Lista verticale di Avatar di dimensione piccola con attributo `size="sm"`.
 
-<Canvas>
-  <Story id="componenti-avatar-avatar-groups-list--avatar-small-list" />
-</Canvas>
+<Canvas of={AvatarGroupStories.AvatarSmallList} />
 
 #### Lista media
 
 Lista verticale di Avatar di dimensione media con attributo `size="md"`.
 
-<Canvas>
-  <Story id="componenti-avatar-avatar-groups-list--avatar-media-list" />
-</Canvas>
+<Canvas of={AvatarGroupStories.AvatarMediaList} />
 
 ### Avatar Sovrapposti
 
@@ -138,9 +126,7 @@ Racchiudendo una serie di Avatar in un componente `AvatarGroupContainer` questi 
 
 Gruppo di Avatar sovrapposti di dimensione piccola con attributo `size="xs"`.
 
-<Canvas>
-  <Story id="componenti-avatar-avatar-groups-overlapping--small-overlapping-avatars" />
-</Canvas>
+<Canvas of={AvatarGroupOverlappingStories.MediumOverlaidAvatars} />
 
 #### Avatar Sovrapposti Medi
 
@@ -149,6 +135,8 @@ Gruppo di Avatar sovrapposti di dimensione media con attributo `size="md"`.
 <Canvas>
   <Story id="componenti-avatar-avatar-groups-overlapping--medium-overlaid-avatars" />
 </Canvas>
+
+<Canvas of={AvatarGroupOverlappingStories.SmallOverlappingAvatars} />
 
 ## Comportamento
 
@@ -183,9 +171,7 @@ Affiancando un componente `AvatarIcon` con il componente `AvatarPresence` all'in
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-avatar-behavior--user-presence" />
-</Canvas>
+<Canvas of={AvatarBehaviourStories.UserPresence} />
 
 ### Status utente
 
@@ -218,9 +204,7 @@ Affiancando un componente `AvatarIcon` con il componente `AvatarStatus` all'inte
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-avatar-behavior--user-status" />
-</Canvas>
+<Canvas of={AvatarBehaviourStories.UserStatus} />
 
 ## Avatar con testo aggiuntivo
 
@@ -228,9 +212,7 @@ Per ottenere una versione più completa dell’Avatar con nome esteso ed eventua
 
 Per il nome è possibile utilizzare i tag `<h3>` o `<h4>`. Il testo esteso può essere contenuto in un `<p>` o in un tag `<time>` nel caso di date/orari.
 
-<Canvas>
-  <Story id="componenti-avatar--avatar-with-additional-text" />
-</Canvas>
+<Canvas of={AvatarStories.AvatarWithText} />
 
 ## Argomenti componente
 

@@ -1,9 +1,13 @@
+import type { Meta } from '@storybook/react';
 import React from "react";
-import { AvatarIcon, LinkListItem, LinkList, Icon } from "../../../src";
+import { AvatarIcon, Icon, LinkList, LinkListItem } from "../../../src";
 
-export default {
-    title: "Componenti/Avatar/Avatar groups List",
+const meta: Meta<typeof AvatarIcon> = {
+    title: "Documentazione/Componenti/Avatar groups List",
+    component: AvatarIcon,
 };
+
+export default meta;
 
 export const AvatarSmallList = () => {
     return (

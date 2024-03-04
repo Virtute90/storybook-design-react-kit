@@ -1,13 +1,13 @@
+import { Meta } from "@storybook/react";
 import React from "react";
+import { AvatarContainer, AvatarIcon, AvatarPresence, AvatarStatus, AvatarWrapper, Icon } from "../../../src";
 
-import { AvatarIcon, AvatarContainer, AvatarPresence, AvatarWrapper, AvatarStatus, Icon } from "../../../src";
-
-// import UserPresence from './UserPresence'
-// import UserStatus from './UserStatus'
-
-export default {
-    title: "Componenti/Avatar/Behavior",
+const meta: Meta<typeof AvatarContainer> = {
+    title: "Documentazione/Componenti/Avatar/Behavior",
+    component: AvatarContainer,
 };
+
+export default meta;
 
 export const UserPresence = () => {
     return (
