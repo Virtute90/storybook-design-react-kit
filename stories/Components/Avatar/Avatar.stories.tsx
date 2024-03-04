@@ -1,10 +1,13 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
+import type { Meta } from '@storybook/react';
 import React, { useRef } from "react";
-import { AvatarIcon, AvatarContainer, AvatarWrapper, AvatarExtraText, UncontrolledTooltip, Icon } from "../../../src";
+import { AvatarContainer, AvatarExtraText, AvatarIcon, AvatarWrapper, Icon, UncontrolledTooltip } from "../../../src";
 
-export default {
-    title: "Componenti/Avatar",
+const meta: Meta<typeof AvatarContainer> = {
+    title: "Documentazione/Componenti/Avatar",
+    component: AvatarContainer,
 };
+
+export default meta;
 
 export const AvatarWithImage = () => (
     <AvatarContainer>
