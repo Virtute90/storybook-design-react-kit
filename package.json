@@ -9,7 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook-docs": "storybook dev --docs",
+    "build-storybook": "storybook build",
+    "build-storybook-docs": "storybook build --docs"
   },
   "keywords": [],
   "author": "",
