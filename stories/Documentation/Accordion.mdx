@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
 import {
   Accordion,
@@ -103,9 +103,7 @@ Aggiungere l'attributo `background="active"` al componente `Accordion` per otten
 
 Aggiungere l'attributo `background="hover"` al componente `Accordion` per ottenere header con sfondo di colore primario all’hover.
 
-<Canvas>
-  <Story id="componenti-accordion--header-hover" />
-</Canvas>
+<Canvas of={AccordionStories.HeaderHover} />
 
 ### Icona a sinistra
 
@@ -117,16 +115,16 @@ Aggiungere l'attributo `iconLeft={true}` al 11componente `Accordion` per ottener
 
 ## Accordion
 
-<ArgsTable of={Accordion} />
+<ArgTypes of={AccordionStories.GruppiDiElementiRichiudibili} />
 
 ## Accordion Item
 
-<ArgsTable of={AccordionItem} />
+<ArgTypes of={AccordionItem} />
 
 ### AccordionHeader
 
-<ArgsTable of={AccordionHeader} />
+<ArgTypes of={AccordionHeader} />
 
 ### AccordionBody
 
-<ArgsTable of={AccordionBody} />
+<ArgTypes of={AccordionBody} />
