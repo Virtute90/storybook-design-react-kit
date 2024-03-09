@@ -3,32 +3,34 @@ import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import { Alert } from "../../src";
 
-const meta: Meta = {
+const meta: Meta<typeof Alert> = {
     title: "Documentazione/Componenti/Alert",
     component: Alert,
+    args: {
+        color: "info",
+        children: "Questo è un alert di tipo <b>info</b>!",
+    },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Alert>;
 
-export const _Esempi: Story = () => (
+export const _Esempi: Story = (args) => (
     <div>
-        <Alert color="info">
-            Questo è un alert di tipo <b>info</b>!
-        </Alert>
-        <Alert color="success">
-            Questo è un alert di tipo <b>success</b>!
-        </Alert>
-        <Alert color="danger">
-            Questo è un alert di tipo <b>danger</b>!
-        </Alert>
-        <Alert color="warning">
-            Questo è un alert di tipo <b>warning</b>!
-        </Alert>
+        <Alert {...args} />
     </div>
 );
-_Esempi.args = {};
+
+_Esempi.args = { ...meta.args };
+_Esempi.argTypes = {
+    color: {
+        options: ["info", "success", "danger", "warning"],
+        control: {
+            type: "select",
+        },
+    },
+};
 
 export const _EsempiInterattivi: Story = ({ ...args }) => (
     <Alert {...args}>

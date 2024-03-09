@@ -1,18 +1,10 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { ArgsTable, Canvas, Meta, Story, Controls } from "@storybook/blocks";
 import { Code } from "@storybook/components";
 import { Alert, Callout, CalloutText, CalloutTitle } from "../../src";
 import * as AlertStories from "../Components/Alert.stories";
 
 <Meta
   of={AlertStories}
-  argTypes={{
-    color: {
-      control: {
-        type: "select",
-        options: ["info", "success", "danger", "warning"],
-      },
-    },
-  }}
 />
 
 # Alert
@@ -20,6 +12,7 @@ import * as AlertStories from "../Components/Alert.stories";
 Gli avvisi sono disponibili in quattro tipologie diverse e per qualsiasi lunghezza di testo. Inoltre possono prevedere un pulsante di chiusura
 
 <Canvas of={AlertStories._Esempi} />
+<Controls of={AlertStories._Esempi}/>
 
 <div className="docs">
   <Callout color="success">
