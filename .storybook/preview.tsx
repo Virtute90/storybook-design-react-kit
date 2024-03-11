@@ -15,7 +15,6 @@ const customStyle = {
 
 const preview: Preview = {
     parameters: {
-        actions: { argTypesRegex: "^on.*" },
         docs: {
             theme: theme,
             toc: true,
