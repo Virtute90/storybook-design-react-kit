@@ -12,7 +12,8 @@ const config: StorybookConfig = {
     },
     staticDirs: ["../static", { from: "../assets", to: "/" }],
     docs: {
-        autodocs: "tag",
+        autodocs: false,
+        defaultName: "Documentazione",
     },
 };
 export default config;
