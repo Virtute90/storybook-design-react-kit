@@ -1,14 +1,20 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
+import { componentColor } from "../../.storybook/stories-helper";
 import { Alert } from "../../src";
 
 const meta: Meta<typeof Alert> = {
     title: "Documentazione/Componenti/Alert",
     component: Alert,
     args: {
-        color: "info",
-        children: "Questo è un alert di tipo <b>info</b>!",
+        color: "success",
+    },
+    argTypes: {
+        color: {
+            control: "select",
+            options: componentColor,
+        },
     },
 };
 
@@ -16,77 +22,65 @@ export default meta;
 
 type Story = StoryObj<typeof Alert>;
 
-export const _Esempi: Story = (args) => (
-    <div>
-        <Alert {...args} />
-    </div>
-);
+export const _EsempiInterattivi: Story = {
+    render: ({ ...args }) => (
+        <Alert {...args}>
+            Questo è un alert di<b>{args.color}</b>!
+        </Alert>
+    ),
+};
 
-_Esempi.args = { ...meta.args };
-_Esempi.argTypes = {
-    color: {
-        options: ["info", "success", "danger", "warning"],
-        control: {
-            type: "select",
-        },
+export const _LinkEvidenziato: Story = {
+    render: ({ ...args }) => (
+        <Alert {...args}>
+            Questo è un alert con un esempio di
+            <a href="#" className="alert-link">
+                link
+            </a>
+            evidenziato.
+        </Alert>
+    ),
+    args: {
+        color: "danger",
     },
 };
 
-export const _EsempiInterattivi: Story = ({ ...args }) => (
-    <Alert {...args}>
-        Questo è un alert di <b>{args.color}</b>!
-    </Alert>
-);
-_EsempiInterattivi.args = {
-    color: "info",
-    isOpen: true,
+export const _ContenutoAggiuntivo: Story = {
+    render: ({ ...args }) => (
+        <Alert {...args}>
+            <h4 className="alert-heading">Avviso di successo!</h4>
+            <p>
+                Stai leggendo questo importante messaggio di avviso di successo. Questo testo di esempio sarà più a lungo in modo da poter vedere come funzioni
+                la spaziatura all&#39;interno di un avviso con questo tipo di contenuto.
+            </p>
+            <hr />
+            <p className="mb-0">Quando necessario, assicurarti di inserire le utilità di margine per mantenere gli spazi equilibrati.</p>
+        </Alert>
+    ),
 };
-_EsempiInterattivi.argTypes = {
-    color: {
-        control: {
-            type: "select",
-            options: ["info", "success", "danger", "warning"],
+
+export const ChiusuraControllata: Story = {
+    render: ({ ...args }) => {
+        const [open, setOpen] = useState(true);
+
+        const closeAlert = () => setOpen(false);
+
+        return (
+            <div>
+                <Alert {...args} isOpen={open} toggle={closeAlert}>
+                    <strong>Attenzione</strong>Alcuni campi inseriti sono da controllare.
+                </Alert>
+            </div>
+        );
+    },
+    parameters: {
+        docs: {
+            source: {
+                type: "code",
+            },
         },
     },
-};
-
-export const _LinkEvidenziato: Story = () => (
-    <Alert color="danger">
-        Questo è un alert con un esempio di
-        <a href="#" className="alert-link">
-            link
-        </a>
-        evidenziato.
-    </Alert>
-);
-_LinkEvidenziato.args = {};
-
-export const _ContenutoAggiuntivo: Story = () => (
-    <Alert>
-        <h4 className="alert-heading">Avviso di successo!</h4>
-        <p>
-            Stai leggendo questo importante messaggio di avviso di successo. Questo testo di esempio sarà più a lungo in modo da poter vedere come funzioni la
-            spaziatura all&#39;interno di un avviso con questo tipo di contenuto.
-        </p>
-        <hr />
-        <p className="mb-0">Quando necessario, assicurarti di inserire le utilità di margine per mantenere gli spazi equilibrati.</p>
-    </Alert>
-);
-_ContenutoAggiuntivo.args = {};
-
-export const ChiusuraControllata: Story = () => {
-    const [open, setOpen] = useState(true);
-
-    const closeAlert = () => setOpen(false);
-
-    return (
-        <div>
-            <Alert color="warning" isOpen={open} toggle={closeAlert}>
-                <strong>Attenzione</strong> Alcuni campi inseriti sono da controllare.
-            </Alert>
-        </div>
-    );
-};
-ChiusuraControllata.story = {
-    name: "Chiusura Controllata",
+    args: {
+        color: "warning",
+    },
 };
