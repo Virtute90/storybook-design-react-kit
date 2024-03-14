@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
 import { Badge, Callout, CalloutText, CalloutTitle } from "../../src";
 import * as BadgeStories from "../Components/Badge.stories";
@@ -7,11 +7,16 @@ import * as BadgeStories from "../Components/Badge.stories";
 
 # Badge
 
+## Esempio interattivo
+
+<Canvas />
+<Controls />
+
 ## Documentazione e esempi del componente badge, utile per piccoli contatori e etichette.
 
 La grandezza di ogni badge si adatta come dimensione a quella del font (misurato in unità `em`) dell’elemento in cui è contenuto.
 
-<Canvas of={BadgeStories.Esempi} />
+<Canvas of={BadgeStories.DiffenteGrandezza} />
 
 I badge possono essere utilizzati come parte di link o pulsanti per fornire un contatore.
 
@@ -30,22 +35,17 @@ Utilizzare l'attributo `color` sul componente per modificare l’aspetto di un b
 <Canvas of={BadgeStories.Variazioni} />
 
 <div className="docs">
-  <Callout color="success">
-    <CalloutTitle>
-      <span className="text">
-        Trasmettere significato alle tecnologie assistive
-      </span>
-    </CalloutTitle>
-    <CalloutText>
-      L’uso del colore per aggiungere un significato fornisce solo
-      un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie
-      assistive – come gli screen reader. Assicurati che le informazioni
-      denotate dal colore siano rese disponibili anche dal contenuto stesso
-      (es.: il testo visibile), o siano incluse attraverso mezzi alternativi,
-      come testo aggiuntivo nascosto con la classe
-      <Code>.visually-hidden</Code>.
-    </CalloutText>
-  </Callout>
+    <Callout color="success">
+        <CalloutTitle>
+            <span className="text">Trasmettere significato alle tecnologie assistive</span>
+        </CalloutTitle>
+        <CalloutText>
+            L’uso del colore per aggiungere un significato fornisce solo un’indicazione visiva, che non sarà trasmesso agli utenti di tecnologie assistive –
+            come gli screen reader. Assicurati che le informazioni denotate dal colore siano rese disponibili anche dal contenuto stesso (es.: il testo
+            visibile), o siano incluse attraverso mezzi alternativi, come testo aggiuntivo nascosto con la classe
+            <Code>.visually-hidden</Code>.
+        </CalloutText>
+    </Callout>
 </div>
 
 ## Badges arrotondati

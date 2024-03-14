@@ -1,39 +1,55 @@
 import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { componentColor } from "../../.storybook/stories-helper";
 import type { BadgeProps } from "../../src";
 import { Badge, Button } from "../../src";
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<typeof Badge> = {
     title: "Documentazione/Componenti/Badge",
-    component: Button,
+    component: Badge,
+    args: {
+        color: "secondary",
+    },
+    argTypes: {
+        color: {
+            control: "select",
+            options: componentColor,
+        },
+    },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Badge>;
 
-export const Esempi = () => (
-    <div>
-        <h1>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h1>
-        <h2>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h2>
-        <h3>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h3>
-        <h4>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h4>
-        <h5>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h5>
-        <h6>
-            Titolo di esempio <Badge color="secondary">New</Badge>
-        </h6>
-    </div>
-);
+export const EsempioInterattivo: Story = {
+    render: ({ ...args }) => <Badge {...args}>{args.color}</Badge>,
+};
+
+export const DiffenteGrandezza: Story = {
+    render: () => (
+        <div>
+            <h1>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h1>
+            <h2>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h2>
+            <h3>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h3>
+            <h4>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h4>
+            <h5>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h5>
+            <h6>
+                Titolo di esempio <Badge color="secondary">New</Badge>
+            </h6>
+        </div>
+    ),
+};
 
 export const Contatore = () => (
     <Button color="primary">
