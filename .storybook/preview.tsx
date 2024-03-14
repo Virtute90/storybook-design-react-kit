@@ -17,7 +17,10 @@ const preview: Preview = {
     parameters: {
         docs: {
             theme: theme,
-            toc: true,
+            toc: {
+                headingSelector: "h1, h2, h3",
+                title: "Indice",
+            },
         },
         options: {
             storySort: {

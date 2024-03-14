@@ -1,8 +1,8 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { componentColor } from "../../.storybook/stories-helper";
-import { Alert } from "../../src";
+import { componentColor } from "../.storybook/stories-helper";
+import { Alert } from "../src";
 
 const meta: Meta<typeof Alert> = {
     title: "Documentazione/Componenti/Alert",
@@ -75,9 +75,7 @@ export const ChiusuraControllata: Story = {
     },
     parameters: {
         docs: {
-            source: {
-                type: "code",
-            },
+            canvas: { sourceState: "none" },
         },
     },
     args: {
