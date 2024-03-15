@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "../../src";
 
@@ -7,16 +7,16 @@ const meta: Meta<typeof Accordion> = {
     component: Accordion,
     parameters: {
         docs: {
-            source: {
-                type: "dynamic",
-            },
+            canvas: { sourceState: "none" },
         },
     },
 };
 
 export default meta;
 
-export const GruppiDiElementiRichiudibili = {
+type Story = StoryObj<typeof Accordion>;
+
+export const GruppiDiElementiRichiudibili: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         return (
@@ -53,7 +53,7 @@ export const GruppiDiElementiRichiudibili = {
     },
 };
 
-export const _Accordion = {
+export const _Accordion: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         return (
@@ -90,7 +90,7 @@ export const _Accordion = {
     },
 };
 
-export const AccordionAnnidati = {
+export const AccordionAnnidati: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         const [nestedCollapseOpen, setNestedCollapseOpen] = useState("");
@@ -162,7 +162,7 @@ export const AccordionAnnidati = {
     },
 };
 
-export const HeaderAttivi = {
+export const HeaderAttivi: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         return (
@@ -199,7 +199,7 @@ export const HeaderAttivi = {
     },
 };
 
-export const HeaderHover = {
+export const HeaderHover: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         return (
@@ -236,7 +236,7 @@ export const HeaderHover = {
     },
 };
 
-export const IconaSinistra = {
+export const IconaSinistra: Story = {
     render: () => {
         const [collapseElementOpen, setCollapseElement] = useState("");
         return (
