@@ -75,9 +75,7 @@ export const ChiusuraControllata: Story = {
     },
     parameters: {
         docs: {
-            source: {
-                type: "code",
-            },
+            canvas: { sourceState: "none" },
         },
     },
     args: {

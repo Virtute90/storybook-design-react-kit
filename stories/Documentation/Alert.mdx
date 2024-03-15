@@ -49,19 +49,23 @@ I messaggi di avviso possono avere del contenuto HTML aggiuntivo come degli head
 
 Clicca sul pulsante di chiusura per vedere la funzionalità di rimozione altert in azione:
 
-<Canvas of={AlertStories.ChiusuraControllata} source={{ code: `
+<Canvas of={AlertStories.ChiusuraControllata} />
+
+#### Codice
+
+```tsx
 const [open, setOpen] = useState(true);
 
 const closeAlert = () => setOpen(false);
 
 return (
-
-<div>
-    <Alert {...args} isOpen={open} toggle={closeAlert}>
-        <strong>Attenzione</strong>Alcuni campi inseriti s ono da controllare.
-    </Alert>
-</div>
-);` }} />
+    <div>
+        <Alert {...args} isOpen={open} toggle={closeAlert}>
+            <strong>Attenzione</strong>Alcuni campi inseriti sono da controllare.
+        </Alert>
+    </div>
+);
+```
 
 ## Argomenti componente
 
