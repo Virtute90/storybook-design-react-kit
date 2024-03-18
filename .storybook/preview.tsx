@@ -21,6 +21,9 @@ const preview: Preview = {
                 headingSelector: "h1, h2, h3",
                 title: "Indice",
             },
+            source: {
+                type: "dynamic",
+            },
         },
         options: {
             storySort: {
