@@ -1,151 +1,156 @@
-import type { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import React, { useRef } from "react";
 import { AvatarContainer, AvatarExtraText, AvatarIcon, AvatarWrapper, Icon, UncontrolledTooltip } from "../../../src";
 
 const meta: Meta<typeof AvatarContainer> = {
     title: "Documentazione/Componenti/Avatar",
-    component: AvatarContainer,
+    component: AvatarIcon,
+    argTypes: {
+        color: {
+            control: "select",
+            options: ["primary", "secondary", "green", "orange", "red"],
+        },
+    },
 };
 
 export default meta;
 
-export const AvatarWithImage = () => (
-    <AvatarContainer>
-        <AvatarIcon size="xs">
-            <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Mario Rossi" />
-        </AvatarIcon>
-        <AvatarIcon size="sm">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Luisa Neri" />
-        </AvatarIcon>
-        <AvatarIcon>
-            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Gioacchino Romani"></img>
-        </AvatarIcon>
-        <AvatarIcon size="lg">
-            <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri" />
-        </AvatarIcon>
-        <AvatarIcon size="xl">
-            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Carlo Poli" />
-        </AvatarIcon>
-        <AvatarIcon size="xxl">
-            <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Giovanna Ferrero" />
-        </AvatarIcon>
-    </AvatarContainer>
-);
+type Story = StoryObj<typeof AvatarIcon>;
 
-AvatarWithImage.storyName = "Avatar with image";
+export const AvatarWithImage: Story = {
+    loaders: [
+        async () => ({
+            fakeUser: await (await fetch("https://randomuser.me/api")).json(), //https://randomuser.me/documentation#howto
+        }),
+    ],
+    render: (args, { loaded: { fakeUser } }) => {
+        return (
+            <AvatarContainer>
+                <AvatarIcon {...args}>
+                    <img src={fakeUser.results.at(0).picture.large} alt={`${fakeUser.results.at(0).name.last} ${fakeUser.results.at(0).name.first}`} />
+                </AvatarIcon>
+            </AvatarContainer>
+        );
+    },
+};
 
-export const AvatarWithText = () => (
-    <AvatarContainer>
-        <AvatarIcon size="xs">
-            <p aria-hidden="true">M</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon color="primary" size="sm">
-            <p aria-hidden="true">M</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon color="secondary">
-            <p aria-hidden="true">MR</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon color="green" size="lg">
-            <p aria-hidden="true">MR</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon color="orange" size="xl">
-            <p aria-hidden="true">MR</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon color="red" size="xxl">
-            <p aria-hidden="true">MR</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-    </AvatarContainer>
-);
-
-AvatarWithText.storyName = "Avatar with text";
-
-export const AvatarWithIcon = () => (
-    <AvatarContainer>
-        <AvatarIcon size="xs">
-            <Icon icon="it-search" />
-        </AvatarIcon>
-        <AvatarIcon size="sm">
-            <Icon icon="it-search" />
-        </AvatarIcon>
-        <AvatarIcon>
-            <Icon icon="it-search" />
-        </AvatarIcon>
-        <AvatarIcon size="lg">
-            <Icon icon="it-search" />
-        </AvatarIcon>
-        <AvatarIcon size="xl">
-            <Icon icon="it-search" />
-        </AvatarIcon>
-        <AvatarIcon size="xxl">
-            <Icon icon="it-search" />
-        </AvatarIcon>
-    </AvatarContainer>
-);
-
-AvatarWithIcon.storyName = "Avatar with icon";
-
-export const AvatarLink = () => (
-    <AvatarContainer>
-        <AvatarIcon size="xl" href="#">
-            <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri"></img>
-        </AvatarIcon>
-        <AvatarIcon size="xl" color="red" href="#">
-            <p aria-hidden="true">MR</p>
-            <span className="visually-hidden">Mario Rossi</span>
-        </AvatarIcon>
-        <AvatarIcon size="xl">
-            <Icon icon="it-search" onClick={() => console.log("Click")} />
-        </AvatarIcon>
-    </AvatarContainer>
-);
-
-AvatarLink.storyName = "Avatar link";
-
-export const AvatarLinkWithTooltip = () => {
-    const withImageRef = useRef(null);
-    const withTextRef = useRef(null);
-    const withIconRef = useRef(null);
-    return (
+export const AvatarWithText: Story = {
+    render: () => (
         <AvatarContainer>
-            <AvatarIcon size="xl" href="#" innerRef={withImageRef}>
-                <UncontrolledTooltip placement="left" target={withImageRef}>
-                    Anna Barbieri
-                    <br />
-                    <i>Administrator</i>
-                </UncontrolledTooltip>
-                <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri"></img>
+            <AvatarIcon size="xs">
+                <p aria-hidden="true">M</p>
+                <span className="visually-hidden">Mario Rossi</span>
             </AvatarIcon>
-            <AvatarIcon size="xl" color="red" href="#" innerRef={withTextRef}>
-                <UncontrolledTooltip placement="top" target={withTextRef}>
-                    Mario Rossi
-                    <br />
-                    <i>Editor</i>
-                </UncontrolledTooltip>
+            <AvatarIcon color="primary" size="sm">
+                <p aria-hidden="true">M</p>
+                <span className="visually-hidden">Mario Rossi</span>
+            </AvatarIcon>
+            <AvatarIcon color="secondary">
                 <p aria-hidden="true">MR</p>
                 <span className="visually-hidden">Mario Rossi</span>
             </AvatarIcon>
-            <AvatarIcon size="xl" href="#" innerRef={withIconRef}>
-                <Icon icon="it-search" />
-                <UncontrolledTooltip placement="right" target={withIconRef}>
-                    Search
-                    <br />
-                    <i>News Archive</i>
-                </UncontrolledTooltip>
+            <AvatarIcon color="green" size="lg">
+                <p aria-hidden="true">MR</p>
+                <span className="visually-hidden">Mario Rossi</span>
+            </AvatarIcon>
+            <AvatarIcon color="orange" size="xl">
+                <p aria-hidden="true">MR</p>
+                <span className="visually-hidden">Mario Rossi</span>
+            </AvatarIcon>
+            <AvatarIcon color="red" size="xxl">
+                <p aria-hidden="true">MR</p>
+                <span className="visually-hidden">Mario Rossi</span>
             </AvatarIcon>
         </AvatarContainer>
-    );
+    ),
 };
 
-AvatarLinkWithTooltip.storyName = "Avatar link with Tooltip";
+export const AvatarWithIcon: Story = {
+    render: () => (
+        <AvatarContainer>
+            <AvatarIcon size="xs">
+                <Icon icon="it-search" />
+            </AvatarIcon>
+            <AvatarIcon size="sm">
+                <Icon icon="it-search" />
+            </AvatarIcon>
+            <AvatarIcon>
+                <Icon icon="it-search" />
+            </AvatarIcon>
+            <AvatarIcon size="lg">
+                <Icon icon="it-search" />
+            </AvatarIcon>
+            <AvatarIcon size="xl">
+                <Icon icon="it-search" />
+            </AvatarIcon>
+            <AvatarIcon size="xxl">
+                <Icon icon="it-search" />
+            </AvatarIcon>
+        </AvatarContainer>
+    ),
+};
 
-export const AvatarWithAdditionalText = () => {
-    return (
+export const AvatarLink: Story = {
+    render: () => (
+        <AvatarContainer>
+            <AvatarIcon size="xl" href="#">
+                <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri"></img>
+            </AvatarIcon>
+            <AvatarIcon size="xl" color="red" href="#">
+                <p aria-hidden="true">MR</p>
+                <span className="visually-hidden">Mario Rossi</span>
+            </AvatarIcon>
+            <AvatarIcon size="xl">
+                <Icon icon="it-search" onClick={() => console.log("Click")} />
+            </AvatarIcon>
+        </AvatarContainer>
+    ),
+};
+
+export const AvatarLinkWithTooltip: Story = {
+    render: () => {
+        const withImageRef = useRef(null);
+        const withTextRef = useRef(null);
+        const withIconRef = useRef(null);
+        return (
+            <AvatarContainer>
+                <AvatarIcon size="xl" href="#" innerRef={withImageRef}>
+                    <UncontrolledTooltip placement="left" target={withImageRef}>
+                        Anna Barbieri
+                        <br />
+                        <i>Administrator</i>
+                    </UncontrolledTooltip>
+                    <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri"></img>
+                </AvatarIcon>
+                <AvatarIcon size="xl" color="red" href="#" innerRef={withTextRef}>
+                    <UncontrolledTooltip placement="top" target={withTextRef}>
+                        Mario Rossi
+                        <br />
+                        <i>Editor</i>
+                    </UncontrolledTooltip>
+                    <p aria-hidden="true">MR</p>
+                    <span className="visually-hidden">Mario Rossi</span>
+                </AvatarIcon>
+                <AvatarIcon size="xl" href="#" innerRef={withIconRef}>
+                    <Icon icon="it-search" />
+                    <UncontrolledTooltip placement="right" target={withIconRef}>
+                        Search
+                        <br />
+                        <i>News Archive</i>
+                    </UncontrolledTooltip>
+                </AvatarIcon>
+            </AvatarContainer>
+        );
+    },
+    parameters: {
+        docs: {
+            canvas: { sourceState: "none" },
+        },
+    },
+};
+
+export const AvatarWithAdditionalText: Story = {
+    render: () => (
         <AvatarContainer>
             <AvatarWrapper extra="text">
                 <AvatarIcon size="xl">
@@ -179,7 +184,5 @@ export const AvatarWithAdditionalText = () => {
                 </AvatarExtraText>
             </AvatarWrapper>
         </AvatarContainer>
-    );
+    ),
 };
-
-AvatarWithAdditionalText.storyName = "Avatar with additional text";

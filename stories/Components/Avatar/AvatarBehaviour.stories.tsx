@@ -1,16 +1,18 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { AvatarContainer, AvatarIcon, AvatarPresence, AvatarStatus, AvatarWrapper, Icon } from "../../../src";
 
 const meta: Meta<typeof AvatarContainer> = {
     title: "Documentazione/Componenti/Avatar/Behavior",
-    component: AvatarContainer,
+    component: AvatarIcon,
 };
 
 export default meta;
 
-export const UserPresence = () => {
-    return (
+type Story = StoryObj<typeof AvatarIcon>;
+
+export const UserPresence: Story = {
+    render: () => (
         <div>
             <AvatarContainer>
                 <AvatarWrapper>
@@ -78,11 +80,11 @@ export const UserPresence = () => {
                 </AvatarWrapper>
             </AvatarContainer>
         </div>
-    );
+    ),
 };
 
-export const UserStatus = () => {
-    return (
+export const UserStatus: Story = {
+    render: () => (
         <div>
             <AvatarContainer>
                 <AvatarWrapper>
@@ -151,5 +153,5 @@ export const UserStatus = () => {
                 </AvatarWrapper>
             </AvatarContainer>
         </div>
-    );
+    ),
 };

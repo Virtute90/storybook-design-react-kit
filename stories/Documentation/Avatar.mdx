@@ -1,16 +1,16 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
 import {
-  AvatarContainer,
-  AvatarExtraText,
-  AvatarGroupContainer,
-  AvatarIcon,
-  AvatarPresence,
-  AvatarStatus,
-  AvatarWrapper,
-  Callout,
-  CalloutText,
-  CalloutTitle,
+    AvatarContainer,
+    AvatarExtraText,
+    AvatarGroupContainer,
+    AvatarIcon,
+    AvatarPresence,
+    AvatarStatus,
+    AvatarWrapper,
+    Callout,
+    CalloutText,
+    CalloutTitle,
 } from "../../src";
 import * as AvatarStories from "../Components/Avatar/Avatar.stories";
 import * as AvatarBehaviourStories from "../Components/Avatar/AvatarBehaviour.stories";
@@ -27,36 +27,30 @@ L’elemento Avatar è la rappresentazione grafica di un utente e può includere
 
 Gli Avatar sono disponibili in sei diverse dimensioni:
 
-- xs con attributo `size="xs"`
-- sm con attributo `size="sm"`
-- md (dimensioni di default) `size="md"`
-- lg con attributo `size="lg"`
-- xl con attributo `size="xl"`
-- xxl con attributo `size="xxl"`
+-   xs con attributo `size="xs"`
+-   sm con attributo `size="sm"`
+-   md (dimensioni di default) `size="md"`
+-   lg con attributo `size="lg"`
+-   xl con attributo `size="xl"`
+-   xxl con attributo `size="xxl"`
 
 <div className="docs">
-  <Callout color="success">
-    <CalloutTitle>
-      <span className="text">Accessibilità delle immagini</span>
-    </CalloutTitle>
-    <CalloutText>
-      Per ragioni di accessibilità è importante indicare all’interno dell’Avatar
-      il nome dell’utente associato allo stesso.
-    </CalloutText>
-    <CalloutText>
-      Nel caso di Avatar con immagine è consigliabile utilizzare l’attributo{" "}
-      <Code>alt=""</Code> della stessa.
-    </CalloutText>
-    <CalloutText>
-      Un Avatar con testo conterrà uno <Code>&lt;span&gt;</Code> per soli screen
-      reader con il nome dell’utente indicato per esteso:
-      <Code>&lt;span class="visually-hidden"&gt;Nome Utente&lt;/span&gt;</Code>.
-    </CalloutText>
-    <CalloutText>
-      Per gli Avatar con icona inserire un testo alternativo:{" "}
-      <Code>&lt;span class="visually-hidden"&gt;Testo icona&lt;/span&gt;</Code>.
-    </CalloutText>
-  </Callout>
+    <Callout color="success">
+        <CalloutTitle>
+            <span className="text">Accessibilità delle immagini</span>
+        </CalloutTitle>
+        <CalloutText>Per ragioni di accessibilità è importante indicare all’interno dell’Avatar il nome dell’utente associato allo stesso.</CalloutText>
+        <CalloutText>
+            Nel caso di Avatar con immagine è consigliabile utilizzare l’attributo <Code>alt=""</Code> della stessa.
+        </CalloutText>
+        <CalloutText>
+            Un Avatar con testo conterrà uno <Code>&lt;span&gt;</Code> per soli screen reader con il nome dell’utente indicato per esteso:
+            <Code>&lt;span class="visually-hidden"&gt;Nome Utente&lt;/span&gt;</Code>.
+        </CalloutText>
+        <CalloutText>
+            Per gli Avatar con icona inserire un testo alternativo: <Code>&lt;span class="visually-hidden"&gt;Testo icona&lt;/span&gt;</Code>.
+        </CalloutText>
+    </Callout>
 </div>
 
 ### Avatar con immagine
@@ -64,6 +58,7 @@ Gli Avatar sono disponibili in sei diverse dimensioni:
 L’Avatar ridimensiona automaticamente l’immagine adattandola al formato circolare e centrandola. Si consiglia in ogni caso di utilizzare immagini delle dimensioni corrette.
 
 <Canvas of={AvatarStories.AvatarWithImage} />
+<Controls of={AvatarStories.AvatarWithImage} />
 
 ### Avatar con testo
 
@@ -71,11 +66,11 @@ Avatar con testo
 
 La versione con testo contiene le iniziali dell’utente (una sola nel caso delle dimensioni xs ed sm). Oltre ai colori di default è possibile utilizzare uno sfondo a scelta fra:
 
-- Primario: aggiungendo l'attributo `color="primary"` al componente `AvatarIcon`
-- Secondario: aggiungendo l'attributo `color="secondary"` al componente `AvatarIcon`
-- Verde: aggiungendo l'attributo `color="green"` al componente `AvatarIcon`
-- Arancione: aggiungendo l'attributo `color="orange"` al componente `AvatarIcon`
-- Rosso: aggiungendo l'attributo `color="red"` al componente `AvatarIcon`
+-   Primario: aggiungendo l'attributo `color="primary"` al componente `AvatarIcon`
+-   Secondario: aggiungendo l'attributo `color="secondary"` al componente `AvatarIcon`
+-   Verde: aggiungendo l'attributo `color="green"` al componente `AvatarIcon`
+-   Arancione: aggiungendo l'attributo `color="orange"` al componente `AvatarIcon`
+-   Rosso: aggiungendo l'attributo `color="red"` al componente `AvatarIcon`
 
 In questi casi il testo sarà di colore bianco.
 
@@ -97,6 +92,43 @@ Per associare un Avatar ad una navigazione, è possible inserire componenti di n
 E’ possibile associare un Tooltip con maggiori informazioni relative all’utente o all’azione associata utilizzando il componente `Tooltip` del kit.
 
 <Canvas of={AvatarStories.AvatarLinkWithTooltip} />
+
+#### Codice
+
+```tsx
+const withImageRef = useRef(null);
+const withTextRef = useRef(null);
+const withIconRef = useRef(null);
+return (
+    <AvatarContainer>
+        <AvatarIcon size="xl" href="#" innerRef={withImageRef}>
+            <UncontrolledTooltip placement="left" target={withImageRef}>
+                Anna Barbieri
+                <br />
+                <i>Administrator</i>
+            </UncontrolledTooltip>
+            <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Anna Barbieri"></img>
+        </AvatarIcon>
+        <AvatarIcon size="xl" color="red" href="#" innerRef={withTextRef}>
+            <UncontrolledTooltip placement="top" target={withTextRef}>
+                Mario Rossi
+                <br />
+                <i>Editor</i>
+            </UncontrolledTooltip>
+            <p aria-hidden="true">MR</p>
+            <span className="visually-hidden">Mario Rossi</span>
+        </AvatarIcon>
+        <AvatarIcon size="xl" href="#" innerRef={withIconRef}>
+            <Icon icon="it-search" />
+            <UncontrolledTooltip placement="right" target={withIconRef}>
+                Search
+                <br />
+                <i>News Archive</i>
+            </UncontrolledTooltip>
+        </AvatarIcon>
+    </AvatarContainer>
+);
+```
 
 ## Gruppi di Avatar
 
@@ -133,7 +165,7 @@ Gruppo di Avatar sovrapposti di dimensione piccola con attributo `size="xs"`.
 Gruppo di Avatar sovrapposti di dimensione media con attributo `size="md"`.
 
 <Canvas>
-  <Story id="componenti-avatar-avatar-groups-overlapping--medium-overlaid-avatars" />
+    <Story id="componenti-avatar-avatar-groups-overlapping--medium-overlaid-avatars" />
 </Canvas>
 
 <Canvas of={AvatarGroupOverlappingStories.SmallOverlappingAvatars} />
@@ -144,31 +176,25 @@ Gruppo di Avatar sovrapposti di dimensione media con attributo `size="md"`.
 
 Affiancando un componente `AvatarIcon` con il componente `AvatarPresence` all'interno di un componente `AvatarWrapper` si ottiene un indicatore dello stato di presenza dell’utente:
 
-- lo stato attivo si ottiene impostando l'attributo `presence` su `active`
-- lo stato non disponibile si ottiene aggiungendo l'attributo `presence` su `busy`
-- lo stato invisibile si ottiene aggiungendo l'attributo `presence` su `hidden`
+-   lo stato attivo si ottiene impostando l'attributo `presence` su `active`
+-   lo stato non disponibile si ottiene aggiungendo l'attributo `presence` su `busy`
+-   lo stato invisibile si ottiene aggiungendo l'attributo `presence` su `hidden`
 
 <div className="docs">
-  <Callout color="success">
-    <CalloutTitle>
-      <span className="text">Accessibilità della presenza</span>
-    </CalloutTitle>
-    <CalloutText>
-      <p>
-        Inserire un <Code>&lt;span&gt;</Code> riservato agli screen reader con
-        indicazione della presenza dell’utente nel componente
-        <Code>AvatarPresence</Code>.
-      </p>
-      <p>
-        Ad esempio:{" "}
-        <Code>
-          &lt;span class="visually-hidden"&gt;Presenza: (stato
-          presenza)&lt;/span&gt;
-        </Code>
-        .
-      </p>
-    </CalloutText>
-  </Callout>
+    <Callout color="success">
+        <CalloutTitle>
+            <span className="text">Accessibilità della presenza</span>
+        </CalloutTitle>
+        <CalloutText>
+            <p>
+                Inserire un <Code>&lt;span&gt;</Code> riservato agli screen reader con indicazione della presenza dell’utente nel componente
+                <Code>AvatarPresence</Code>.
+            </p>
+            <p>
+                Ad esempio: <Code>&lt;span class="visually-hidden"&gt;Presenza: (stato presenza)&lt;/span&gt;</Code>.
+            </p>
+        </CalloutText>
+    </Callout>
 </div>
 
 <Canvas of={AvatarBehaviourStories.UserPresence} />
@@ -177,31 +203,25 @@ Affiancando un componente `AvatarIcon` con il componente `AvatarPresence` all'in
 
 Affiancando un componente `AvatarIcon` con il componente `AvatarStatus` all'interno di un componente `AvatarWrapper` si ottiene un indicatore dello stato dell'account utente:
 
-- lo stato attivo si ottiene impostando l'attributo `status` su `approved`
-- lo stato non disponibile si ottiene aggiungendo l'attributo `status` su `declined`
-- lo stato invisibile si ottiene aggiungendo l'attributo `status` su `notify`
+-   lo stato attivo si ottiene impostando l'attributo `status` su `approved`
+-   lo stato non disponibile si ottiene aggiungendo l'attributo `status` su `declined`
+-   lo stato invisibile si ottiene aggiungendo l'attributo `status` su `notify`
 
 <div className="docs">
-  <Callout color="success">
-    <CalloutTitle>
-      <span className="text">Accessibilità dello status</span>
-    </CalloutTitle>
-    <CalloutText>
-      <p>
-        Inserire un <Code>&lt;span&gt;</Code> riservato agli screen reader con
-        indicazione della presenza dell’utente nel componente
-        <Code>AvatarStatus</Code>.
-      </p>
-      <p>
-        Ad esempio:{" "}
-        <Code>
-          &lt;span class="visually-hidden"&gt;Status: (stato
-          utenza)&lt;/span&gt;
-        </Code>
-        .
-      </p>
-    </CalloutText>
-  </Callout>
+    <Callout color="success">
+        <CalloutTitle>
+            <span className="text">Accessibilità dello status</span>
+        </CalloutTitle>
+        <CalloutText>
+            <p>
+                Inserire un <Code>&lt;span&gt;</Code> riservato agli screen reader con indicazione della presenza dell’utente nel componente
+                <Code>AvatarStatus</Code>.
+            </p>
+            <p>
+                Ad esempio: <Code>&lt;span class="visually-hidden"&gt;Status: (stato utenza)&lt;/span&gt;</Code>.
+            </p>
+        </CalloutText>
+    </Callout>
 </div>
 
 <Canvas of={AvatarBehaviourStories.UserStatus} />
@@ -218,28 +238,28 @@ Per il nome è possibile utilizzare i tag `<h3>` o `<h4>`. Il testo esteso può 
 
 ### AvatarContainer
 
-<ArgsTable of={AvatarContainer} />
+<ArgTypes of={AvatarContainer} />
 
 ### AvatarIcon
 
-<ArgsTable of={AvatarIcon} />
+<ArgTypes of={AvatarIcon} />
 
 ### AvatarGroupContainer
 
-<ArgsTable of={AvatarGroupContainer} />
+<ArgTypes of={AvatarGroupContainer} />
 
 ### AvatarWrapper
 
-<ArgsTable of={AvatarWrapper} />
+<ArgTypes of={AvatarWrapper} />
 
 ### AvatarPresence
 
-<ArgsTable of={AvatarPresence} />
+<ArgTypes of={AvatarPresence} />
 
 ### AvatarStatus
 
-<ArgsTable of={AvatarStatus} />
+<ArgTypes of={AvatarStatus} />
 
 ### AvatarExtraText
 
-<ArgsTable of={AvatarExtraText} />
+<ArgTypes of={AvatarExtraText} />
