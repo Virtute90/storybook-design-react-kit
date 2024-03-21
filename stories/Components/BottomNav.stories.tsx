@@ -3,7 +3,7 @@ import React from "react";
 import { BottomNav, BottomNavItem } from "../../src";
 
 const meta: Meta<typeof BottomNav> = {
-    title: "Documentazione/Componenti/BottomNav",
+    title: "Documentazione/Menu di navigazione/BottomNav",
     component: BottomNav,
 };
 
