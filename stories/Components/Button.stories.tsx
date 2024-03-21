@@ -2,63 +2,46 @@ import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { Button, Icon } from "../../src";
 
+const colors = ["primary", "secondary", "success", "info", "danger", "warning", "link"];
+
 const meta: Meta<typeof Button> = {
-    title: "Documentazione/Componenti/Breadcrumbs",
+    title: "Documentazione/Componenti/Button",
     component: Button,
+    parameters: {
+        layout: "centered",
+    },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const colors = ["Primary", "Secondary", "Success", "Info", "Danger", "Warning", "Link"];
+export const EsempioInterattivo: Story = {
+    render: ({ ...args }) => {
+        return <Button {...args}>Bottone</Button>;
+    },
+    args: {
+        color: "primary",
+    },
+    argTypes: {
+        color: {
+            control: "select",
+            options: colors,
+        },
+    },
+};
 
-export const Esempi: Story = {
+export const Tipologie: Story = {
     render: () => {
         return (
-            <>
-                <div className="mb-2">
-                    <Button color="primary">Primary</Button>
-                    <Button outline color="primary">
-                        Primary Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="secondary">Secondary</Button>
-                    <Button outline color="secondary">
-                        Secondary Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="success">Success</Button>
-                    <Button outline color="success">
-                        Success Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="info">Info</Button>
-                    <Button outline color="info">
-                        Info Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="danger">Danger</Button>
-                    <Button outline color="danger">
-                        Danger Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="warning">Warning</Button>
-                    <Button outline color="warning">
-                        Warning Outline
-                    </Button>
-                </div>
-                <div className="mb-2">
-                    <Button color="link">Link</Button>
-                    <Button outline color="link">
-                        Link Outline
-                    </Button>
-                </div>
-            </>
+            <div>
+                <Button tag="a" href="#" role="button">
+                    Link
+                </Button>
+                <Button type="submit">Button</Button>
+                <Button tag="input" type="button" value="Input" />
+                <Button tag="input" type="submit" value="Submit" />
+                <Button tag="input" type="reset" value="Reset" />
+            </div>
         );
     },
 };
@@ -165,23 +148,23 @@ export const SfondoScuro: Story = {
 
 export const VariantiDiDimensione: Story = {
     render: () => (
-        <section>
+        <section className="col-12">
             <div>
-                <Button color="primary" size="lg">
+                <Button className="me-2" color="primary" size="lg">
                     Primary Large
                 </Button>
                 <Button color="secondary" size="lg">
                     Secondary Large
                 </Button>
                 <div className="mt-3" />
-                <Button color="primary" size="sm">
+                <Button className="me-2" color="primary" size="sm">
                     Primary Small
                 </Button>
                 <Button color="secondary" size="sm">
                     Secondary Small
                 </Button>
                 <div className="mt-3" />
-                <Button color="primary" size="xs">
+                <Button className="me-2" color="primary" size="xs">
                     Primary Mini
                 </Button>
                 <Button color="secondary" size="xs">
@@ -197,22 +180,25 @@ export const VariantiDiDimensione: Story = {
             </div>
         </section>
     ),
+    parameters: {
+        layout: "padded",
+    },
 };
 
 export const BottoniConIcona: Story = {
     render: () => (
         <div>
-            <Button color="success" size="lg" icon>
+            <Button className="me-2" color="success" size="lg" icon>
                 <Icon color="white" icon="it-star-full" /> Icon Button Large
             </Button>
-            <Button color="primary" icon>
+            <Button className="me-2" color="primary" icon>
                 <Icon color="white" icon="it-star-full" /> Icon Button
             </Button>
-            <Button color="danger" size="sm" icon>
-                <Icon color="secondary" icon="it-star-full" /> Icon Button Small
+            <Button className="me-2" color="danger" size="sm" icon>
+                <Icon color="white" icon="it-star-full" /> Icon Button Small
             </Button>
             <Button color="info" size="xs" icon>
-                <Icon color="danger" icon="it-star-full" /> Icon Button Extra Small
+                <Icon color="white" icon="it-star-full" /> Icon Button Extra Small
             </Button>
         </div>
     ),
@@ -221,56 +207,30 @@ export const BottoniConIcona: Story = {
 export const BottoniConIconaCerchiata: Story = {
     render: () => (
         <div>
-            <Button color="success" size="lg" icon>
+            <Button className="me-2" color="success" size="lg" icon>
                 <span className="rounded-icon">
                     <Icon color="success" icon="it-user" />
                 </span>
                 <span>Round Icon Large</span>
             </Button>
-            <Button color="primary" icon>
+            <Button className="me-2" color="primary" icon>
                 <span className="rounded-icon">
                     <Icon color="primary" icon="it-user" />
                 </span>
                 <span>Round Icon</span>
             </Button>
-            <Button color="danger" size="sm" icon>
-                <span className="rounded-icon rounded-secondary">
-                    <Icon color="white" icon="it-user" />
+            <Button className="me-2" color="danger" size="sm" icon>
+                <span className="rounded-icon">
+                    <Icon color="danger" icon="it-user" />
                 </span>
                 <span>Round Icon Small</span>
             </Button>
             <Button color="info" size="xs" icon>
-                <span className="rounded-icon rounded-danger">
-                    <Icon color="white" icon="it-user" />
+                <span className="rounded-icon">
+                    <Icon color="secondary" icon="it-user" />
                 </span>
                 <span>Round Icon Extra Small</span>
             </Button>
-        </div>
-    ),
-};
-
-export const StatoAttivo: Story = {
-    render: () => (
-        <div>
-            {colors.map((color) => (
-                <span key={color}>
-                    <Button color={color.toLowerCase()}>{color}</Button>
-                </span>
-            ))}
-        </div>
-    ),
-};
-
-export const StatoDisabilitato: Story = {
-    render: () => (
-        <div>
-            {colors.map((color) => (
-                <span key={color}>
-                    <Button color={color.toLowerCase()} disabled>
-                        {color}
-                    </Button>
-                </span>
-            ))}
         </div>
     ),
 };

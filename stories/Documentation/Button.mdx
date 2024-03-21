@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Controls, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
 import { Button, Callout, CalloutText, CalloutTitle } from "../../src";
 import * as ButtonStories from "../Components/Button.stories";
@@ -13,22 +13,14 @@ import * as ButtonStories from "../Components/Button.stories";
 
 Per aggiungere un bottone personalizzato, è sufficiente utilizzare il componente `Button` ed i relativi attributi per applicarne le varianti di stile, dimensione, ecc.
 
-<Canvas />
-<Controls />
+<Canvas of={ButtonStories.EsempioInterattivo} />
+<Controls of={ButtonStories.EsempioInterattivo} />
 
 Il componente `Button` è state pensato per essere utilizzate con l’elemento `<button/>`. Tuttavia, è possibile applicare lo stile per i bottoni anche ad elementi di tipo `<a/>` o `<input/>`, anche se alcuni browser potrebbero mostrare un rendering lievemente diverso.
 
 In questi casi, non dimenticare di utilizzare in modo appropriato gli attributi `role="button"` per trasmettere il loro scopo alle tecnologie assistive.
 
-<Canvas>
-    <Button tag="a" href="#" role="button">
-        Link
-    </Button>
-    <Button type="submit">Button</Button>
-    <Button tag="input" type="button" value="Input" />
-    <Button tag="input" type="submit" value="Submit" />
-    <Button tag="input" type="reset" value="Reset" />
-</Canvas>
+<Canvas of={ButtonStories.Tipologie} />
 
 ## Varianti di colore
 
