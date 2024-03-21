@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import type { ButtonProps } from "../../src";
 import { Button, Icon } from "../../src";
 
 const meta: Meta<typeof Button> = {
@@ -10,6 +9,8 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 type Story = StoryObj<typeof Button>;
+
+const colors = ["Primary", "Secondary", "Success", "Info", "Danger", "Warning", "Link"];
 
 export const Esempi: Story = {
     render: () => {
@@ -273,42 +274,3 @@ export const StatoDisabilitato: Story = {
         </div>
     ),
 };
-
-const colors = ["Primary", "Secondary", "Success", "Info", "Danger", "Warning", "Link"];
-
-type EsempiInterattiviProps = Pick<Required<ButtonProps>, "color" | "disabled" | "block"> & {
-    dimension: ButtonProps["size"];
-    label: string;
-};
-
-export const EsempiInterattivi = ({ color, dimension, block, disabled, label }: EsempiInterattiviProps) => {
-    return (
-        <Button color={color.toLowerCase()} disabled={disabled} block={block} size={dimension}>
-            {label} {color} {dimension} {block ? "block" : ""} {disabled ? "disabled" : " "}
-        </Button>
-    );
-};
-EsempiInterattivi.args = {
-    color: colors[0],
-    dimension: " ",
-    block: false,
-    disabled: false,
-    label: "",
-};
-EsempiInterattivi.argTypes = {
-    color: {
-        control: {
-            type: "select",
-            options: colors,
-        },
-    },
-    dimension: {
-        control: {
-            type: "select",
-            options: [" ", "xs", "sm", "lg"],
-        },
-    },
-};
-
-EsempiInterattivi.storyName = "Esempi interattivi";
-EsempiInterattivi.prameters = { controls: { expanded: true } };
