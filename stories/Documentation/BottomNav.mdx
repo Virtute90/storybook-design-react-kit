@@ -1,8 +1,9 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
+import { ArgTypes, Canvas, Meta, Story } from "@storybook/blocks";
 import { Code } from "@storybook/components";
-import { BottomNav, BottomNavItem, Callout, CalloutTitle, CalloutText } from "../Components/BottomNav.stories";
+import { BottomNav, BottomNavItem, Callout, CalloutText, CalloutTitle } from "../../src";
+import * as BottomNavStories from "../Components/BottomNav.stories";
 
-<Meta title="Documentazione/Menu di navigazione/BottomNav" of={BottomNav} />
+<Meta of={BottomNavStories} />
 
 # BottomNav
 
@@ -58,8 +59,8 @@ Aggiungere un attributo `alert` per identificare una sezione che richiede attenz
 
 ### BottomNav
 
-<ArgsTable of={BottomNav} />
+<ArgTypes of={BottomNav} />
 
 ### BottomNavItem
 
-<ArgsTable of={BottomNavItem} />
+<ArgTypes of={BottomNavItem} />
