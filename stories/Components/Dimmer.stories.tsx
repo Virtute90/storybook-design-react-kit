@@ -1,15 +1,20 @@
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Button, Card, CardBody, CardText, CardTitle, Dimmer, DimmerButtons, Fade } from '../../src';
 
-import { Dimmer, DimmerButtons, Button, Fade, Card, CardBody, CardTitle, CardText } from '../../src';
-
-type EsempiProps = {
-  fadeIn: boolean;
+const meta: Meta<typeof Dimmer> = {
+  title: "Documentazione/Componenti/Dimmer",
+  component: Dimmer,
 };
-export const Esempi: Story<EsempiProps> = ({ fadeIn }) => {
-  return (
+
+export default meta;
+
+type Story = StoryObj<typeof Dimmer>;
+
+export const Esempi: Story = {
+  render: () => (
     <div>
-      <Fade in={fadeIn} tag='div' className='mt-3'>
+      <Fade in={true} tag='div' className='mt-3'>
         <Dimmer icon='it-unlocked'>
           <p>
             Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo
@@ -65,13 +70,13 @@ export const Esempi: Story<EsempiProps> = ({ fadeIn }) => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
-export const ColorePrimario: Story<EsempiProps> = ({ fadeIn }) => {
-  return (
+export const ColorePrimario: Story = {
+  render: () => (
     <div>
-      <Fade in={fadeIn} tag='div' className='mt-3'>
+      <Fade in={true} tag='div' className='mt-3'>
         <Dimmer color='primary' icon='it-unlocked'>
           <p>
             Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo
@@ -127,13 +132,13 @@ export const ColorePrimario: Story<EsempiProps> = ({ fadeIn }) => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
-export const DimmerConAzioni: Story<EsempiProps> = ({ fadeIn }) => {
-  return (
+export const DimmerConAzioni: Story = {
+  render: () => (
     <div>
-      <Fade in={fadeIn} tag='div' className='mt-3'>
+      <Fade in={true} tag='div' className='mt-3'>
         <Dimmer icon='it-unlocked'>
           <h4>Titolo Dimmer</h4>
           <DimmerButtons>
@@ -177,13 +182,13 @@ export const DimmerConAzioni: Story<EsempiProps> = ({ fadeIn }) => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
-export const DimmerConAzioniColorePrimario: Story<EsempiProps> = ({ fadeIn }) => {
-  return (
+export const DimmerConAzioniColorePrimario: Story = {
+  render: () => (
     <div>
-      <Fade in={fadeIn} tag='div' className='mt-3'>
+      <Fade in={true} tag='div' className='mt-3'>
         <Dimmer color='primary' icon='it-unlocked'>
           <h4>Titolo Dimmer</h4>
           <DimmerButtons single>
@@ -224,16 +229,5 @@ export const DimmerConAzioniColorePrimario: Story<EsempiProps> = ({ fadeIn }) =>
         </div>
       </div>
     </div>
-  );
+  )
 };
-
-export default {
-  title: 'Componenti/Dimmer',
-  args: {
-    fadeIn: true
-  }
-};
-
-DimmerConAzioni.storyName = 'Dimmer con Azioni';
-
-DimmerConAzioniColorePrimario.storyName = 'Dimmer con Azioni Colore Primario';
