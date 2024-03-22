@@ -1,7 +1,8 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Chip, ChipLabel } from "../Components/Chips.stories";
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
+import { Chip, ChipLabel } from '../../src';
+import * as ChipStories from '../Components/Chips.stories';
 
-<Meta title="Documentazione/Componenti/Chips" of={Chip} />
+<Meta of={ChipStories} />
 
 # Chips
 
@@ -15,40 +16,32 @@ L’azione richiesta per l’eliminazione della chip andrà associata al compone
 
 Assegnando l'attributo `large` sul componente `Chip` si ottiene una versione più grande del componente.
 
-<Canvas>
-    <Story id="componenti-chips--esempi" />
-</Canvas>
+<Canvas of={ChipStories.Esempi} />
 
 ### Varianti di colore
 
 Gli stili definiti da Bootstrap Italia utilizzano un naming consistente con Bootstrap:
 
-<Canvas>
-    <Story id="componenti-chips--varianti-di-colore" />
-</Canvas>
+<Canvas of={ChipStories.VariantiDiColore} />
 
 ### Chip Disabilitata
 
 Aggiungendo l'attributo `disabled` al componente si ottiene una chip disabilitata.
 
-<Canvas>
-    <Story id="componenti-chips--chip-disabilitata" />
-</Canvas>
+<Canvas of={ChipStories.ChipDisabilitata} />
 
 ### Gruppi di Chip
 
 I gruppi di Chip vengono visualizzati in linea.
 
-<Canvas>
-    <Story id="componenti-chips--gruppi-di-chip" />
-</Canvas>
+<Canvas of={ChipStories.GruppiDiChip} />
 
 ## Argomenti componente
 
 ## Chip
 
-<ArgsTable of={Chip} />
+<ArgTypes of={Chip} />
 
 ### ChipLabel
 
-<ArgsTable of={ChipLabel} />
+<ArgTypes of={ChipLabel} />
