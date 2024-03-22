@@ -1,9 +1,8 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-import type { Meta, Story, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import { componentColor } from "../../.storybook/stories-helper";
-import { Callout, CalloutProps, CalloutText, CalloutTitle, Icon } from "../../src";
+import { Callout, CalloutMoreFooter, CalloutText, CalloutTitle, Icon } from "../../src";
 
 const meta: Meta<typeof Callout> = {
     title: "Documentazione/Componenti/Callout",
@@ -63,12 +62,7 @@ export const EsempioAccessibilita: Story = {
     ),
 };
 
-type CalloutTemplateProps = {
-    color: CalloutProps["color"];
-    title: string;
-    icon: string;
-};
-export const CalloutVariantiColore: Story & { icon: string } = {
+export const CalloutVariantiColore = {
     render: ({ ...args }) => (
         <Callout color={args.color}>
             <CalloutTitle>
@@ -81,6 +75,16 @@ export const CalloutVariantiColore: Story & { icon: string } = {
             </CalloutText>
         </Callout>
     ),
+    parameters: {
+        docs: {
+            controls: {
+                exclude: ["title", "className", "tag", "title", "highlight", "detailed", "testId"],
+            },
+        },
+    },
+    /**
+     * Da verificare un modo per modificare l'icon al cambio del colore
+     */
     args: {
         color: "success",
         icon: "check",
@@ -88,77 +92,61 @@ export const CalloutVariantiColore: Story & { icon: string } = {
     },
     argTypes: {
         color: {
-            control: "select",
-            options: componentColor,
+            control: "radio",
+            options: ["success", "warning", "danger", "note", "important"],
+        },
+        icon: {
+            control: "radio",
+            options: ["check", "help", "close", "info"],
         },
     },
 };
 
-/* export const ProceduraCheRichiedeAttenzione: Story = CalloutTemplate.bind({});
-
-export const CalloutHighlights: Story = () => (
-    <Callout highlight>
-        <CalloutTitle>Titolo Callout</CalloutTitle>
-        <CalloutText bigText>
-            Maecenas at erat id sem interdum efficitur eu sed nunc. Mauris sit amet erat eget augue molestie malesuada ut sed ex. In sed dignissim elit.
-        </CalloutText>
-        <CalloutText>
-            Maecenas vulputate ante dictum vestibulum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non augue non purus vestibulum
-            varius. Maecenas ullamcorper <a href="#">tincidunt nulla quis laoreet.</a>
-        </CalloutText>
-    </Callout>
-);
-
-type CalloutHighlightTemplateProps = CalloutTemplateProps;
-const CalloutHighlightsTemplate: Story<CalloutHighlightTemplateProps> = ({ title, color, icon }) => (
-    <Callout highlight color={color}>
-        <CalloutTitle>
-            <Icon icon={`it-${icon}-circle`} padding={false} aria-hidden />
-            {title}
-        </CalloutTitle>
-        <CalloutText>
-            Maecenas at erat id sem interdum efficitur eu sed nunc. Mauris sit amet erat eget augue molestie malesuada ut sed ex. In sed dignissim elit.
-        </CalloutText>
-        <CalloutText>
-            Maecenas vulputate ante dictum vestibulum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non augue non purus vestibulum
-            varius. Maecenas ullamcorper <a href="#">tincidunt nulla quis laoreet.</a>
-        </CalloutText>
-    </Callout>
-);
-
-export const CalloutHighlightsSuccess: Story<CalloutHighlightTemplateProps> = CalloutHighlightsTemplate.bind({});
-CalloutHighlightsSuccess.args = {
-    title: "Usa",
-    color: "success",
-    icon: "check",
+export const CalloutHighlights = {
+    render: ({ ...args }) => (
+        <Callout highlight color={args.color}>
+            <CalloutTitle>
+                <Icon icon={`it-${args.icon}-circle`} padding={false} aria-hidden />
+                {args.title}
+            </CalloutTitle>
+            <CalloutText>
+                Maecenas at erat id sem interdum efficitur eu sed nunc. Mauris sit amet erat eget augue molestie malesuada ut sed ex. In sed dignissim elit.
+            </CalloutText>
+            <CalloutText>
+                Maecenas vulputate ante dictum vestibulum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non augue non purus
+                vestibulum varius. Maecenas ullamcorper <a href="#">tincidunt nulla quis laoreet.</a>
+            </CalloutText>
+        </Callout>
+    ),
+    parameters: {
+        docs: {
+            controls: {
+                exclude: ["title", "className", "tag", "title", "highlight", "detailed", "testId"],
+            },
+        },
+    },
+    /**
+     * Da verificare un modo per modificare l'icon e il titolo al cambio del colore
+     */
+    args: {
+        color: "success",
+        icon: "check",
+        title: "Titolo",
+    },
+    argTypes: {
+        color: {
+            control: "radio",
+            options: ["success", "warning", "danger", "note", "important"],
+        },
+        icon: {
+            control: "radio",
+            options: ["check", "help", "close", "info"],
+        },
+    },
 };
 
-export const CalloutHighlightsWarning: Story<CalloutHighlightTemplateProps> = CalloutHighlightsTemplate.bind({});
-CalloutHighlightsWarning.args = {
-    title: "Attenzione",
-    color: "warning",
-    icon: "help",
-};
-
-export const CalloutHighlightsDanger: Story<CalloutHighlightTemplateProps> = CalloutHighlightsTemplate.bind({});
-CalloutHighlightsDanger.args = {
-    title: "Non usare",
-    color: "danger",
-    icon: "close",
-};
-
-export const CalloutHighlightsImportant: Story<CalloutHighlightTemplateProps> = CalloutHighlightsTemplate.bind({});
-CalloutHighlightsImportant.args = {
-    title: "Importante",
-    color: "important",
-    icon: "info",
-};
-
-export const CalloutHighlightsNote: Story<CalloutHighlightTemplateProps> = CalloutHighlightsTemplate.bind({});
-CalloutHighlightsNote.args = { title: "Note", color: "note", icon: "info" };
-
-export const CalloutApprofondimento = () => {
-    return (
+export const CalloutApprofondimento = {
+    render: () => (
         <Callout color="note" detailed>
             <CalloutTitle>
                 <Icon icon="it-zoom-in" padding={false} aria-hidden />
@@ -200,6 +188,5 @@ export const CalloutApprofondimento = () => {
                 </CalloutMoreFooter>
             </CalloutText>
         </Callout>
-    );
+    ),
 };
- */
