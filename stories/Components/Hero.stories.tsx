@@ -1,3 +1,4 @@
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import {
   Card,
@@ -17,12 +18,17 @@ import {
   Row
 } from '../../src';
 
-export default {
-  title: 'Componenti/Hero'
+const meta: Meta<typeof Hero> = {
+  title: "Documentazione/Menu di navigazione/Hero",
+  component: Hero,
 };
 
-export const HeroConSfondo = () => {
-  return (
+export default meta;
+
+type Story = StoryObj<typeof Hero>;
+
+export const HeroConSfondo: Story = {
+  render: () => (
     <Hero>
       <HeroBackground
         src='https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg'
@@ -30,11 +36,11 @@ export const HeroConSfondo = () => {
         alt='imagealt'
       />
     </Hero>
-  );
+  )
 };
 
-export const HeroConSfondoSmall = () => {
-  return (
+export const HeroConSfondoSmall: Story = {
+  render: () => (
     <Hero small>
       <HeroBackground
         src='https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg'
@@ -42,11 +48,11 @@ export const HeroConSfondoSmall = () => {
         alt='imagealt'
       />
     </Hero>
-  );
-};
+  )
+}
 
-export const HeroConTesto = () => {
-  return (
+export const HeroConTesto: Story = {
+  render: () => (
     <Hero>
       <HeroBody>
         <HeroCategory>Category</HeroCategory>
@@ -60,11 +66,11 @@ export const HeroConTesto = () => {
         </HeroButton>
       </HeroBody>
     </Hero>
-  );
+  )
 };
 
-export const HeroConTestoCentrato = () => {
-  return (
+export const HeroConTestoCentrato: Story = {
+  render: () => (
     <Hero centered>
       <HeroBody>
         <HeroCategory>Category</HeroCategory>
@@ -78,11 +84,11 @@ export const HeroConTestoCentrato = () => {
         </HeroButton>
       </HeroBody>
     </Hero>
-  );
+  )
 };
 
-export const HeroConTestoSuSfondo = () => {
-  return (
+export const HeroConTestoSuSfondo: Story = {
+  render: () => (
     <Hero overlay='dark'>
       <HeroBackground
         src='https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg'
@@ -99,11 +105,11 @@ export const HeroConTestoSuSfondo = () => {
         <HeroButton color='secondary'>Label button</HeroButton>
       </HeroBody>
     </Hero>
-  );
+  )
 };
 
-export const HeroConTestoSuSfondoOverlayPrimario = () => {
-  return (
+export const HeroConTestoSuSfondoOverlayPrimario: Story = {
+  render: () => (
     <Hero overlay='primary'>
       <HeroBackground
         src='https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg'
@@ -122,11 +128,11 @@ export const HeroConTestoSuSfondoOverlayPrimario = () => {
         </HeroButton>
       </HeroBody>
     </Hero>
-  );
+  )
 };
 
-export const HeroConSfondoOverlayFiltro = () => {
-  return (
+export const HeroConSfondoOverlayFiltro: Story = {
+  render: () => (
     <Hero overlay='filter'>
       <HeroBackground
         src='https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg'
@@ -134,11 +140,11 @@ export const HeroConSfondoOverlayFiltro = () => {
         alt='imagealt'
       />
     </Hero>
-  );
+  )
 };
 
-export const HeroConSfondoMargineNegativo = () => {
-  return (
+export const HeroConSfondoMargineNegativo: Story = {
+  render: () => (
     <>
       <Hero overlap>
         <HeroBackground
@@ -176,5 +182,5 @@ export const HeroConSfondoMargineNegativo = () => {
         </Row>
       </Container>
     </>
-  );
+  )
 };
