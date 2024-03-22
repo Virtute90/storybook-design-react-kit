@@ -3,8 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, Col, Container, Form, Icon, Input, Label, LinkList, LinkListItem, Row } from '../../src';
 
+//Non esiste un componente footer per cui uso Container come riferimento per la storia
 const meta: Meta<typeof Container> = {
-  title: "Documentazione/Componenti/Footer",
+  title: "Documentazione/Menu di navigazione/Footer",
   component: Container,
   args: {
     townName: 'Nome del Comune',
