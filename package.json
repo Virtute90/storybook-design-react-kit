@@ -32,6 +32,7 @@
         "accessible-autocomplete": "^2.0.4",
         "bootstrap-italia": "^2.8.2",
         "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
         "prop-types": "^15.8.1",
         "sass": "^1.72.0",
         "storybook": "^8.0.0",
