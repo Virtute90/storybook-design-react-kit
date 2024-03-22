@@ -21,7 +21,6 @@ import {
 const meta: Meta<typeof Card> = {
   title: "Documentazione/Componenti/Cards",
   component: Card,
-
 };
 
 export default meta;
