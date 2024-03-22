@@ -1,7 +1,8 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Icon } from "../Components/Icon.stories";
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/blocks';
+import { Icon } from '../../src';
+import * as IconStories from '../Components/Icon.stories';
 
-<Meta title="Documentazione/Utilities/Icone" of={Icon} />
+<Meta of={IconStories} />
 
 # Icone
 
@@ -13,54 +14,41 @@ Le icone di Bootstrap Italia utilizzano sono state incapsulate in un componente 
 
 Ogni icona può essere inclusa con il componente `Icon` con il riferimento desiderato:
 
-<Canvas>
-    <Story id="componenti-icon--esempio-interattivo" />
-</Canvas>
+<Canvas of={IconStories.EsempioInterattivo} />
+<Controls of={IconStories.EsempioInterattivo} />
 
 ## Dimensioni
 
 È possibile utilizzare il modificatore `size` con il valori `xs`, `sm`, `lg`, `xl`, per ottenere icone di diverse dimensioni.
 
-<Canvas>
-    <Story id="componenti-icon--esempio-dimensioni" />
-</Canvas>
+<Canvas of={IconStories.EsempioDimensioni} />
 
 È anche possibile applicare il modificatore `padding` all’icona per creare un padding proporzionale alla dimensione dell’icona attorno ad essa.
 
-<Canvas>
-    <Story id="componenti-icon--esempio-padding" />
-</Canvas>
+<Canvas of={IconStories.EsempioPadding} />
 
 ## Colori
 
-<Canvas>
-    <Story id="componenti-icon--esempio-colori" />
-</Canvas>
+<Canvas of={IconStories.EsempioColori} />
 
 ## Allineamenti
 
 È possibile usare le classi di allineamento per posizionare le icone all’interno di un elemento.
 
-<Canvas>
-    <Story id="componenti-icon--esempio-allineamento" />
-</Canvas>
+<Canvas of={IconStories.EsempioAllineamento} />
 
 ## Immagini esterne
 
 È possibile utilizzare un'immagine esterna come icona, utilizzando l'URL dell'immagine nell'attributo `icon` del componente.
 
-<Canvas>
-    <Story id="componenti-icon--esempio-loghi-esterni" />
-</Canvas>
+<Canvas of={IconStories.EsempioLoghiEsterni} />
 
 ## Lista delle icone disponibili
 
-<Canvas withSource="none">
-    <Story id="componenti-icon--lista-icone" />
-</Canvas>
+<Canvas of={IconStories.ListaIcone} />
 
 ## Argomenti componente
 
 ### Icon
 
-<ArgsTable of={Icon} />
+<ArgTypes of={Icon} />
