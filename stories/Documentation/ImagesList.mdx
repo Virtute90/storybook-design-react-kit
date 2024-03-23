@@ -1,7 +1,8 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { GridItem, GridItemText, GridItemTextWrapper, GridList, GridRow, ResponsiveImage } from "../Components/ImagesList.stories";
+import { ArgTypes, Canvas, Meta, Story } from '@storybook/blocks';
+import { GridItem, GridItemText, GridItemTextWrapper, GridList, GridRow, ResponsiveImage } from '../../src';
+import * as GridItemStories from '../Components/ImagesList.stories';
 
-<Meta title="Documentazione/Organizzare i contenuti/Liste di Immagini" of={GridList} />
+<Meta of={GridItemStories} />
 
 # Liste di Immagini
 
@@ -11,15 +12,13 @@ La lista di immagini è un componente flessibile per la visualizzazione di serie
 
 Di seguito gli esempi di elemento singolo della grid list:
 
--   Immagine semplice
--   Immagine con didascalia in basso
--   Immagine con didascalia sovrapposta
+- Immagine semplice
+- Immagine con didascalia in basso
+- Immagine con didascalia sovrapposta
 
 Per utilizzare la didascalia sovrapposta è sufficiente aggiungere la classe `.it-grid-system-overlay` al componente `GridList`.
 
-<Canvas>
-    <Story id="componenti-imagelist--elemento-singolo" />
-</Canvas>
+<Canvas of={GridItemStories.ElementoSingolo} />
 
 ## Tipi di griglia
 
@@ -31,9 +30,7 @@ Al posto del componente `Row` viene utilizzata il componente `GridRow`.
 
 Di seguito l’esempio
 
-<Canvas>
-    <Story id="componenti-imagelist--griglia-standard" />
-</Canvas>
+<Canvas of={GridItemStories.GrigliaStandard} />
 
 ### Standard con didascalie
 
@@ -41,9 +38,7 @@ Per la corretta formattazione degli spazi di questo tipo di griglia, occorre agg
 
 Di seguito l’esempio
 
-<Canvas>
-    <Story id="componenti-imagelist--standard-didascalie" />
-</Canvas>
+<Canvas of={GridItemStories.StandardDidascalie} />
 
 ### Proporzionale
 
@@ -52,16 +47,14 @@ Per la corretta formattazione degli spazi di questo tipo di griglia, occorre agg
 
 I tipi di immagini utilizzabili sono sostanzialmente 2:
 
--   standard
--   orizzontale (come proporzione sono il doppio della larghezza rispetto all’immagine standard e di altezza uguale)
+- standard
+- orizzontale (come proporzione sono il doppio della larghezza rispetto all’immagine standard e di altezza uguale)
 
 Per utilizzare l’immagine orizzontale, occorre aggiungere la classe `.it-grid-item-double-w` al componente `GridItem` che contiene l’immagine.
 
 Di seguito l’esempio
 
-<Canvas>
-    <Story id="componenti-imagelist--proporzionale" />
-</Canvas>
+<Canvas of={GridItemStories.Proporzionale} />
 
 ### Masonry
 
@@ -69,32 +62,30 @@ Per realizzare l’elemento Masonry è stata usata la classe `.card-columns` che
 
 Di seguito l’esempio
 
-<Canvas>
-    <Story id="componenti-imagelist--masonry" />
-</Canvas>
+<Canvas of={GridItemStories.Masonry} />
 
 ## Argomenti componente
 
 ### GridList
 
-<ArgsTable of={GridList} />
+<ArgTypes of={GridList} />
 
 ### GridRow
 
-<ArgsTable of={GridRow} />
+<ArgTypes of={GridRow} />
 
 ### GridItem
 
-<ArgsTable of={GridItem} />
+<ArgTypes of={GridItem} />
 
 ### GridItemText
 
-<ArgsTable of={GridItemText} />
+<ArgTypes of={GridItemText} />
 
 ### GridItemTextWrapper
 
-<ArgsTable of={GridItemTextWrapper} />
+<ArgTypes of={GridItemTextWrapper} />
 
 ### ResponsiveImage
 
-<ArgsTable of={ResponsiveImage} />
+<ArgTypes of={ResponsiveImage} />
