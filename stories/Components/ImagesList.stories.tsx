@@ -12,6 +12,7 @@ import {
   Row
 } from '../../src';
 
+//Non esiste un componente specifico per cui uso GridItem come riferimento per la storia
 const meta: Meta<typeof GridItem> = {
   title: "Documentazione/Organizzare i contenuti/Liste di Immagini",
   component: GridItem,
