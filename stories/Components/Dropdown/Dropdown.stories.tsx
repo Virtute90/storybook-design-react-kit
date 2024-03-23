@@ -5,6 +5,13 @@ import { ButtonGroup, Dropdown, DropdownMenu, DropdownToggle, LinkList, LinkList
 const meta: Meta<typeof Dropdown> = {
     title: "Documentazione/Componenti/Dropdown",
     component: Dropdown,
+    parameters: {
+        docs: {
+            story: {
+                height: '225px'
+            }
+        }
+    }
 };
 
 export default meta;
@@ -53,7 +60,15 @@ export const _VarianteBottoni: Story = {
                 </Dropdown>
             </ButtonGroup>
         );
-    }
+    },
+    //Aggiungo del margine alla storia così da visualizzare il bordo onClick correttamente
+    decorators: [
+        (Story) => (
+            <div className="m-2">
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export const _Esempi: Story = {
@@ -74,7 +89,18 @@ export const _Esempi: Story = {
                 </Dropdown>
             </section>
         );
-    }
+    },
+    parameters: {
+        layout: 'centered'
+    },
+    //Aggiungo del margine alla storia così da visualizzare il bordo onClick correttamente
+    decorators: [
+        (Story) => (
+            <div className="m-2">
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export const _Link: Story = {
