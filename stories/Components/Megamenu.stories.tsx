@@ -23,7 +23,8 @@ const meta: Meta<typeof MegamenuItem> = {
     docs: {
       story: {
         height: '350px'
-      }
+      },
+      canvas: { sourceState: "none" },
     }
   }
 };
