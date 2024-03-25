@@ -1,17 +1,16 @@
 import { Preview } from "@storybook/react";
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
-import { CSSProperties } from "react";
 import "../assets/css/fonts.css";
 import "../assets/css/storybook-fixes.css";
 import theme from "./theme";
 
-const customStyle = {
+/* const customStyle = {
     position: "relative",
     boxSizing: "border-box",
     margin: "0",
     padding: "48px 32px",
     textAlign: "initial",
-} as CSSProperties;
+} as CSSProperties; */
 
 const preview: Preview = {
     parameters: {
