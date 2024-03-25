@@ -1,8 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/blocks";
-import { Code } from "@storybook/components";
-import { Callout, CalloutText, Rating } from "../Components/Rating.stories";
+import { ArgTypes, Canvas, Controls, Meta, Story } from '@storybook/blocks';
+import { Code } from '@storybook/components';
+import { Callout, CalloutText, Rating } from '../../src';
+import * as RatingStories from '../Components/Rating.stories';
 
-<Meta title="Documentazione/Componenti/Rating" of={Rating} />
+<Meta of={RatingStories} />
 
 # Rating
 
@@ -10,67 +11,75 @@ import { Callout, CalloutText, Rating } from "../Components/Rating.stories";
 
 ### Esempio
 
-<Canvas>
-  <Story id="componenti-rating--rating-base" />
-</Canvas>
+<Canvas of={RatingStories.RatingBase} />
+<Controls of={RatingStories.RatingBase} />
 
 ### Con label
 
-Per visualizzare una label utilizzare l'attributo `legend` del componente `Rating`. In questo caso viene passato un nodo JSX all'attributo, che però accetta anche una struttura JSON (vedi documentazione).
+Per visualizzare una label utilizzare l'attributo `legend` del componente `Rating`. In questo caso viene passato un nodo tsx all'attributo, che però accetta anche una struttura JSON (vedi documentazione).
 
-<div className="docs">
-  <Callout color="success">
+<div className='docs'>
+  <Callout color='success'>
     <CalloutText>
-      L'attributo <Code>&lt;legend&gt;</Code> contiene testo aggiuntivo per
-      Screen Reader all’interno di uno
+      L'attributo <Code>&lt;legend&gt;</Code> contiene testo aggiuntivo per Screen Reader all’interno di uno
       <Code>&lt;span class="visually-hidden"&gt;</Code>
       .<br />
-      La label con il numero di stelle dev’essere contenuta in uno <Code>
-        &lt;span&gt;
-      </Code> semplice.
+      La label con il numero di stelle dev’essere contenuta in uno <Code>&lt;span&gt;</Code> semplice.
     </CalloutText>
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-rating--rating-con-label" />
-</Canvas>
+<Canvas of={RatingStories.RatingConLabel} />
+
+#### Codice
+
+```tsx
+const [rating, setRating] = useState(4);
+return (
+  <Rating
+    value={rating}
+    legend={
+      <>
+        <span className='visually-hidden'>Valutazione</span> <span>{rating} stelle</span>
+        <span className='visually-hidden'>su 5</span>
+      </>
+    }
+    inputs={['star1b', 'star2b', 'star3b', 'star4b', 'star5b']}
+    name='ratingB'
+    onChangeRating={setRating}
+  />
+);
+```
 
 ### Sola lettura
 
-Aggiungendo l'attributo `readOnly` si ottiene un Rating non modificabile di sola lettura.
-
-<div className="docs">
-  <Callout color="success">
+<div className='docs'>
+  <Callout color='success'>
     <CalloutText>
-      Per rendere accessibile il contenuto è necessario aggiungere l'attributo{" "}
-      <Code>&lt;legend&gt;</Code> con classe <code>.visually-hidden</code>.
+      Per rendere accessibile il contenuto è necessario aggiungere l'attributo <Code>&lt;legend&gt;</Code> con classe{' '}
+      <code>.visually-hidden</code>.
     </CalloutText>
   </Callout>
 </div>
 
-<Canvas>
-  <Story id="componenti-rating--rating-read-only" />
-</Canvas>
+Aggiungendo l'attributo `readOnly` si ottiene un Rating non modificabile di sola lettura.
+
+<Canvas of={RatingStories.RatingReadOnly} />
 
 I seguenti valori per l'attributo `legend` sono equivalenti:
 
-```jsx
-<Rating legend={{ content: "Valutazione 4 stelle su 5", srOnly: true }} />
+```tsx
+<Rating legend={{ content: 'Valutazione 4 stelle su 5', srOnly: true }} />
 ```
 
 oppure
 
-```jsx
-<Rating
-  legend={
-    <legend className="visually-hidden">Valutazione 4 stelle su 5</legend>
-  }
-/>
+```tsx
+<Rating legend={<legend className='visually-hidden'>Valutazione 4 stelle su 5</legend>} />
 ```
 
 ## Argomenti componente
 
 ### Rating
 
-<ArgsTable of={Rating} />
+<ArgTypes of={Rating} />
