@@ -15,9 +15,9 @@ const config: StorybookConfig = {
   core: {},
   staticDirs: ['../static', { from: '../assets', to: '/' }],
   docs: {
-    autodocs: false,
+    autodocs: true,
     defaultName: 'Documentazione',
-    docsMode: true
+    docsMode: false
   }
 };
 export default config;
