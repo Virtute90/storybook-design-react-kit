@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React, { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties, ReactChild } from 'react';
 import {
   Button,
   NotificationManager,
@@ -8,22 +8,6 @@ import {
   createNotification,
   notify
 } from '../../src';
-
-// custom style
-const OffsetStyle = {
-  transform: 'translateX(100%)',
-  left: 50,
-  bottom: 50
-};
-
-const XOffsetStyle = {
-  WebkitTransform: 'translateX(50%)',
-  marginTop: '10px'
-};
-
-const YOffsetStyle = {
-  marginTop: '50px'
-};
 
 const NotificationStyle = {
   right: 'auto',
@@ -49,7 +33,7 @@ interface NotificationDocProps {
   dismissable?: boolean;
   icon?: NotificationProps['icon'];
   style?: CSSProperties | undefined;
-  children?: ReactNode;
+  children?: ReactChild;
 }
 
 const NotificationDoc = ({
@@ -173,41 +157,6 @@ export const _NotificationWithMessageStatic: Story = {
   )
 };
 
-export const _NotificationWithMessage_story_hidden: Story = {
-  render: () => {
-    return (
-      <div>
-        <Button
-          onClick={() =>
-            notify(
-              'Titolo Notifica',
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</p>
-            )
-          }
-        >
-          Genera Notifica standard
-        </Button>
-        <Button
-          onClick={() =>
-            notify(
-              'Titolo Notifica',
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</p>,
-              { state: 'success' }
-            )
-          }
-        >
-          Genera Notifica con icona
-        </Button>
-        <NotificationManager />
-      </div>
-    );
-  },
-  parameters: {
-    // disables Chromatic's snapshotting on a story level
-    chromatic: { disableSnapshot: true }
-  }
-};
-
 export const Dismissable: Story = {
   render: () => (
     <div className='container test-docs'>
@@ -299,7 +248,7 @@ export const _RoundingOfCorners: Story = {
     return (
       <div className='container test-docs'>
         <div className='row mb-5'>
-          <div className='col-12 col-md-6 mb-4 mb-md-0' style={{ position: 'absolute' }}>
+          <div className='col-12 col-md-6 mb-4 mb-md-0'>
             <p>
               <strong>Base (4 angoli arrotondati)</strong>
             </p>
@@ -310,55 +259,51 @@ export const _RoundingOfCorners: Story = {
               id='notifica-round-corners'
             />
           </div>
-        </div>
-        <div className='col-12 col-md-6' style={OffsetStyle}>
-          <p>
-            <strong>top</strong>
-          </p>
-          <div className='row mb-5' style={XOffsetStyle}>
-            <NotificationDoc
-              title='Titolo Notifica'
-              state='success'
-              fix='top'
-              style={NotificationStyle}
-              id='notifica-round-corners-top'
-            />
-          </div>
-          <p style={{ marginTop: '90px' }}>
-            <strong>bottom</strong>
-          </p>
-          <div className='row mb-5' style={XOffsetStyle}>
-            <NotificationDoc
-              title='Titolo Notifica'
-              state='success'
-              fix='bottom'
-              style={NotificationStyle}
-              id='notifica-round-corners-bottom'
-            />
-          </div>
-          <p style={{ marginTop: '90px' }}>
-            <strong>left</strong>
-          </p>
-          <div className='row mb-5' style={YOffsetStyle}>
-            <NotificationDoc
-              title='Titolo Notifica'
-              state='success'
-              fix='left'
-              style={NotificationStyle}
-              id='notifica-round-corners-left'
-            />
-          </div>
-          <p>
-            <strong>right</strong>
-          </p>
-          <div className='row mb-5' style={YOffsetStyle}>
-            <NotificationDoc
-              title='Titolo Notifica'
-              state='success'
-              fix='right'
-              style={NotificationStyle}
-              id='notifica-round-corners-right'
-            />
+          <div className='col-12 col-md-6'>
+            <p>
+              <strong>top-fix</strong>
+            </p>
+            <div>
+              <NotificationDoc
+                title='Titolo Notifica'
+                state='success'
+                fix='top'
+                id='notifica-round-corners-top'
+              />
+            </div>
+            <p className='mt-4'>
+              <strong>bottom-fix</strong>
+            </p>
+            <div>
+              <NotificationDoc
+                title='Titolo Notifica'
+                state='success'
+                fix='bottom'
+                id='notifica-round-corners-bottom'
+              />
+            </div>
+            <p className='mt-4'>
+              <strong>left-fix</strong>
+            </p>
+            <div>
+              <NotificationDoc
+                title='Titolo Notifica'
+                state='success'
+                fix='left'
+                id='notifica-round-corners-left'
+              />
+            </div>
+            <p className='mt-4'>
+              <strong>right-fix</strong>
+            </p>
+            <div>
+              <NotificationDoc
+                title='Titolo Notifica'
+                state='success'
+                fix='right'
+                id='notifica-round-corners-right'
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -403,16 +348,51 @@ export const FixedPositions: Story = {
   }
 };
 
-type EsempioInterattivoProps = {
-  title: string;
-  message: string;
-  duration: number;
-  icon: string;
-  state: 'success' | 'error' | 'info' | 'warning';
-  fix: 'top' | 'bottom' | 'left' | 'right';
-  dismissable: boolean;
-  closeOnClick: boolean;
+export const NotificationOptionsComponent_Fake = (
+  props: NotificationOptions
+) => {
+  return null;
 };
+
+//Componenti non usati ma presenti nella precedente documentazione
+
+/*
+
+export const _NotificationWithMessage_story_hidden: Story = {
+  render: () => {
+    return (
+      <div>
+        <Button
+          onClick={() =>
+            notify(
+              'Titolo Notifica',
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</p>
+            )
+          }
+        >
+          Genera Notifica standard
+        </Button>
+        <Button
+          onClick={() =>
+            notify(
+              'Titolo Notifica',
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</p>,
+              { state: 'success' }
+            )
+          }
+        >
+          Genera Notifica con icona
+        </Button>
+        <NotificationManager />
+      </div>
+    );
+  },
+  parameters: {
+    // disables Chromatic's snapshotting on a story level
+    chromatic: { disableSnapshot: true }
+  }
+};
+
 export const EsempioInterattivo: Story = {
   render: ({
     title,
@@ -431,77 +411,36 @@ export const EsempioInterattivo: Story = {
         <NotificationManager fix={fix} closeOnClick={closeOnClick} />
       </div>
     );
-  }
-};
-
-EsempioInterattivo.args = {
-  title: 'Titolo',
-  message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…',
-  fix: undefined,
-  dismissable: false,
-  closeOnClick: false,
-  duration: 6000,
-  icon: undefined,
-  state: undefined
-};
-EsempioInterattivo.argTypes = {
-  fix: {
-    control: {
-      type: 'select',
-      options: [undefined, 'top', 'bottom', 'right', 'left']
-    }
   },
-  state: {
-    control: {
-      type: 'select',
-      options: [undefined, 'success', 'error', 'info', 'warning']
-    }
+  parameters : { controls: { expanded: true } }
+  args : {
+    title: 'Titolo',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…',
+    fix: undefined,
+    dismissable: false,
+    closeOnClick: false,
+    duration: 6000,
+    icon: undefined,
+    state: undefined
   },
-  icon: {
-    control: {
-      type: 'select',
-      options: [undefined, 'it-tool', 'it-camera', 'it-check', 'it-calendar']
+  argTypes : {
+    fix: {
+      control: {
+        type: 'select',
+        options: [undefined, 'top', 'bottom', 'right', 'left']
+      }
+    },
+    state: {
+      control: {
+        type: 'select',
+        options: [undefined, 'success', 'error', 'info', 'warning']
+      }
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: [undefined, 'it-tool', 'it-camera', 'it-check', 'it-calendar']
+      }
     }
-  }
-};
-
-EsempioInterattivo.storyName = 'Esempio interattivo';
-EsempioInterattivo.parameters = { controls: { expanded: true } };
-
-// Fake components used only to generate automatic arg table in docs
-// @ts-ignore: need to turn off typescript here for docuemntation sake
-export const NotifyFakeComponent_story_hidden = ({
-  title,
-  body = undefined,
-  options
-}: {
-  /**
-   * Il titolo della notifica
-   */
-  title: string;
-  /**
-   * Il messaggio della notifica. Può essere una semplice stringa, `null` o JSX React.
-   */
-  body?: ReactNode;
-  /**
-   * Una lista di opzioni per personalizzare la specifica notifica. Vedi sotto per più dettagli.
-   */
-  options?: NotificationOptions;
-}) => {
-  return null;
-};
-NotifyFakeComponent_story_hidden.parameters = {
-  // disables Chromatic's snapshotting on a story level
-  chromatic: { disableSnapshot: true }
-};
-
-export const NotifyFakeOptionsComponent_story_hidden = (
-  // @ts-ignore: need this only for sake of documentation
-  props: NotificationOptions
-) => {
-  return null;
-};
-NotifyFakeOptionsComponent_story_hidden.parameters = {
-  // disables Chromatic's snapshotting on a story level
-  chromatic: { disableSnapshot: true }
-};
+  };
+}; */
