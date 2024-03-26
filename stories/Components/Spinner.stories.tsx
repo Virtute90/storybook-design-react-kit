@@ -1,5 +1,18 @@
 import React from "react";
-import { Spinner } from "../../../src";
+import {Spinner} from "../../src";
+import {Meta} from "@storybook/react";
+
+const meta: Meta<typeof Spinner> = {
+  title: "Documentazione/Componenti/Spinner",
+  component: Spinner,
+  parameters: {
+    docs: {
+      canvas: { sourceState: "none" },
+    },
+  },
+};
+
+export default meta;
 
 export const Esempio = () => (
     <div className="container">
@@ -62,7 +75,3 @@ export const SpinnerDoppio = () => (
         </div>
     </div>
 );
-
-export default {
-    title: "Componenti/Progress Indicators/Spinners",
-};

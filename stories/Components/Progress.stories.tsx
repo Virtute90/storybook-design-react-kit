@@ -1,7 +1,18 @@
-import { Story } from "@storybook/react";
+import {Meta, Story} from "@storybook/react";
 import React from "react";
+import { Button, Icon, Progress } from "../../src";
 
-import { Button, Icon, Progress } from "../../../src";
+const meta: Meta<typeof Progress> = {
+  title: "Documentazione/Componenti/Progress",
+  component: Progress,
+  parameters: {
+    docs: {
+      canvas: { sourceState: "none" },
+    },
+  },
+};
+
+export default meta;
 
 export const Esempio = () => <Progress value="50" />;
 
@@ -58,10 +69,6 @@ export const _EsempiInterattivi: Story<EsempiInterattiviProps> = ({ value, color
             <Progress value={value} label={label} color={color} />
         </div>
     );
-};
-
-export default {
-    title: "Componenti/Progress Indicators",
 };
 
 BottoneConProgressBar.storyName = "Bottone con Progress Bar";
