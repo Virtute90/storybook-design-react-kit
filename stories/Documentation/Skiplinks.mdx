@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Skiplink, SkiplinkItem } from "../Components/Skiplink.stories";
+import { Meta, Canvas } from "@storybook/blocks";
+import * as SkiplinkStories from '../Components/Skiplink.stories';
 
-<Meta title="Documentazione/Menu di navigazione/Skiplink" of={Skiplink} />
+<Meta of={SkiplinkStories} />
 
 # Skiplinks
 
@@ -16,16 +16,6 @@ Gli elementi `SkiplinkItem` sono contraddistinti dalle classi:
 
 Per attivare la funzionalità si digita da tastiera il tasto: TAB.
 
-<Canvas>
-    <Story id="componenti-skiplink--esempi" />
-</Canvas>
+<Canvas of={SkiplinkStories._Esempi}></Canvas>
 
-## Argomenti componente
 
-### Skiplink
-
-<ArgsTable of={Skiplink} />
-
-### SkiplinkItem
-
-<ArgsTable of={SkiplinkItem} />
