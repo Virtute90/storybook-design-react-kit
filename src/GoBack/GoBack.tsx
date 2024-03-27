@@ -16,7 +16,7 @@ export interface GoBackProps {
    * Render the up variant of the go back button
    */
   up?: boolean;
-  children: ReactChild;
+  children?: ReactChild;
 }
 
 const goBack = () => {
