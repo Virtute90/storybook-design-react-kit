@@ -1,6 +1,16 @@
 import React from 'react';
 
 import { Section, Container, Card, CardBody, CardText, Row, Col } from '../../src';
+import {Meta, StoryObj} from "@storybook/react";
+
+const meta: Meta<typeof Section> = {
+  title: "Documentazione/Componenti/Section",
+  component: Section
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Section>;
 
 export const Esempio = () => {
   return (
@@ -173,11 +183,6 @@ export const SectionConCard = () => {
     </Section>
   );
 };
-
-export default {
-  title: 'Componenti/Section'
-};
-
 ImmagineDiSfondo.storyName = 'Immagine di sfondo';
 
 SectionConCard.storyName = 'Section con Card';

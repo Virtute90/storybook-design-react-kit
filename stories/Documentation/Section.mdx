@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Section } from "../Components/Section.stories";
+import { Meta, Canvas } from "@storybook/blocks";
+import * as SectionStories from '../Components/Section.stories';
 
-<Meta title="Documentazione/Componenti/Sections" of={Section} />
+<Meta of={SectionStories} />
 
 # Sections
 
@@ -13,9 +13,7 @@ Per suddividere una pagina in blocchi orizzontali con sfondi differenti utilizza
 
 Il componente Section ha un padding verticale ed orizzontale predefinito ed uno sfondo trasparente.
 
-<Canvas>
-    <Story id="componenti-section--esempio" />
-</Canvas>
+<Canvas of={SectionStories.Esempio}></Canvas>
 
 ### Colori di sfondo
 
@@ -25,9 +23,7 @@ Il componente Section ha, per default, uno sfondo trasparente. Aggiungendo le cl
 
 Al componente Section può essere applicato uno sfondo di colore tenue utilizzando l'attributo `color="muted"`.
 
-<Canvas>
-    <Story id="componenti-section--sfondo-tenue" />
-</Canvas>
+<Canvas of={SectionStories.SfondoTenue}></Canvas>
 
 #### Sfondo Primario
 
@@ -35,9 +31,7 @@ Aggiungendo invece l'attributo `color="primary"` si otterrà un sfondo del color
 
 Si consiglia di applicare la classe `.white-color` al `Container` (come da esempio) per garantire la leggibilità dei testi contenuti.
 
-<Canvas>
-    <Story id="componenti-section--sfondo-primario" />
-</Canvas>
+<Canvas of={SectionStories.SfondoPrimario}></Canvas>
 
 #### Sfondo Neutrale
 
@@ -45,9 +39,7 @@ Aggiungendo invece l'attributo `color="neutral"` si otterrà un sfondo di colore
 
 Si consiglia di applicare la classe `.white-color` al `Container` (come da esempio) per garantire la leggibilità dei testi contenuti.
 
-<Canvas>
-    <Story id="componenti-section--sfondo-neutrale" />
-</Canvas>
+<Canvas of={SectionStories.SfondoNeutrale}></Canvas>
 
 #### Immagine di sfondo
 
@@ -55,20 +47,10 @@ Aggiungendo l'attributo `image` e indicando l’URL dell’immagine da utilizzar
 
 Si consiglia di applicare la classe `.white-color` al `Container` (come da esempio) per garantire la leggibilità dei testi contenuti.
 
-<Canvas>
-    <Story id="componenti-section--immagine-di-sfondo" />
-</Canvas>
+<Canvas of={SectionStories.ImmagineDiSfondo}></Canvas>
 
 ### Section con Card
 
 Per aggiungere una serie di card all’interno di una `Section ` il sistema a griglia Bootstrap con i componenti `Column` e `Row`.
 
-<Canvas>
-    <Story id="componenti-section--section-con-card" />
-</Canvas>
-
-## Argomenti componente
-
-### Section
-
-<ArgsTable of={Section} />
+<Canvas of={SectionStories.SectionConCard}></Canvas>
