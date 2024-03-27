@@ -96,6 +96,9 @@ E’ possibile associare un Tooltip con maggiori informazioni relative all’ute
 #### Codice
 
 ```tsx
+import {useRef} from "react";
+import {AvatarContainer} from "./AvatarContainer";
+import {AvatarIcon} from "./AvatarIcon";
 const withImageRef = useRef(null);
 const withTextRef = useRef(null);
 const withIconRef = useRef(null);

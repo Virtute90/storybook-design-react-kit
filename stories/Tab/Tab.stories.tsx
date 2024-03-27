@@ -3,10 +3,16 @@ import React from "react";
 import { Nav, NavItem, NavLink } from "../../src";
 
 import { TabExampleText, TabExampleIcon, TabExampleTextIcon, TabExampleButton, TabExampleButtonVertical } from "./TabExample";
+import {Meta, StoryObj} from "@storybook/react";
 
-export default {
-    title: "Componenti/Tab",
+const meta: Meta<typeof TabExampleText> = {
+  title: "Documentazione/Componenti/Tab",
+  component: TabExampleText,
 };
+
+export default meta;
+
+type Story = StoryObj<typeof TabExampleText>;
 
 export const Esempi = () => (
     <div>

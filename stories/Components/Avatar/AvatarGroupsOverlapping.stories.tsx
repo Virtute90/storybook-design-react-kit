@@ -3,7 +3,7 @@ import React from "react";
 import { AvatarGroupContainer, AvatarIcon, Dropdown, DropdownMenu, DropdownToggle, Icon, LinkList, LinkListItem } from "../../../src";
 
 const meta: Meta<typeof AvatarGroupContainer> = {
-    title: "Componenti/Avatar/Avatar groups Overlapping",
+    title: "Documentazione/Componenti/Avatar/Avatar groups Overlapping",
     component: AvatarGroupContainer,
 };
 
