@@ -1,9 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import {Meta, StoryObj} from "@storybook/react";
 
-export default {
-  title: 'Componenti/Typography'
+
+const meta: Meta = {
+  title: "Documentazione/Organizzare i contenuti/Tipografia",
 };
+
+export default meta;
+
+type Story = StoryObj;
 
 export const Abbrevazioni = () => (
   <>
