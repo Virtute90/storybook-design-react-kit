@@ -180,7 +180,7 @@ const ResponsiveComponent = () => (
 // }
 
 export default {
-  title: 'Componenti/Pager',
+  title: 'Documentazione/Componenti/Pager',
 
   parameters: {
     viewport: { defaultViewport: 'iphone6' }

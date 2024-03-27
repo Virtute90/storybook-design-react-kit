@@ -271,7 +271,7 @@ export const TotalNumber = () => (
 );
 
 export default {
-  title: 'Componenti/Pager/Funzioni aggiuntive'
+  title: 'Documentazione/Componenti/Pager/Funzioni aggiuntive'
 };
 
 export const _More = MoreComponent;
