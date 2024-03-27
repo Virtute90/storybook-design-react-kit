@@ -1,5 +1,23 @@
-import { Button, Icon, StepperContainer, StepperContent, StepperHeader, StepperHeaderElement, StepperNav } from "../../../src";
+import {
+  Button,
+  Icon,
+  StepperContainer,
+  StepperContent,
+  StepperHeader,
+  StepperHeaderElement,
+  StepperNav
+} from "../../../src";
 import React from "react";
+import type {Meta, StoryObj} from "@storybook/react";
+
+const meta: Meta<typeof StepperContainer> = {
+  title: "Documentazione/Componenti/Stepper",
+  component: StepperContainer
+};
+
+export default meta;
+
+type Story = StoryObj<typeof StepperContainer>;
 
 export const TextOnly = () => {
     return (
@@ -153,8 +171,4 @@ export const HeaderVariants = () => {
             </StepperHeader>
         </StepperContainer>
     );
-};
-
-export default {
-    title: "Componenti/Steppers",
 };

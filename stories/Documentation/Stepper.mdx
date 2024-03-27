@@ -1,7 +1,10 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { StepperHeaderElement, Callout, CalloutTitle, CalloutText, CalloutMoreFooter } from "../Components/Stepper/Stepper.stories";
+import { Meta, Canvas, Story } from "@storybook/blocks";
+import * as StepperStories from '../Components/Stepper/Stepper.stories';
+import * as StepperNavigationStories from '../Components/Stepper/Stepper.Navigation.stories';
+import * as StepperNavigationDarkStories from '../Components/Stepper/Stepper.Navigation.dark.stories';
+import {Callout, CalloutText, CalloutTitle} from "../../src";
 
-<Meta title="Documentazione/Componenti/Steppers" of={StepperHeaderElement} />
+<Meta of={StepperStories} />
 
 # Steppers
 
@@ -41,17 +44,13 @@ I passi visibili nell'intestazione presentano tre varianti:
 È necessario ridurre la finestra del browser per apprezzare il comportamente degli Stepper su dispositivi di dimensioni
 ridotte.
 
-<Canvas>
-    <Story id="componenti-steppers--text-only" />
-</Canvas>
+<Canvas of={StepperStories.TextOnly}></Canvas>
 
 ### Testo e icone
 
 Le label presenti negli step dell'intestazione possono essere anticipate da un'icona.
 
-<Canvas>
-    <Story id="componenti-steppers--text-and-icons" />
-</Canvas>
+<Canvas of={StepperStories.TextAndIcons}></Canvas>
 
 ### Ordine degli step
 
@@ -62,9 +61,7 @@ riservato agli screen reader.
 È necessario aggiungere la prop `noLine` allo `<StepperHeaderElement>` attivo per nascondere il bordo inferiore azzurro,
 in questo caso ridondante.
 
-<Canvas>
-    <Story id="componenti-steppers--order-of-the-steps" />
-</Canvas>
+<Canvas of={StepperStories.OrderOfTheSteps}></Canvas>
 
 ### Navigazione degli step
 
@@ -74,9 +71,7 @@ nelle web app e sono dotati di classi `.steppers-btn-prev` e `.steppers-btn-next
 Il passaggio da uno step all’altro attraverso i pulsanti contenuti in `StepperNav` determina un cambiamento del
 contenuto presente in `StepperContent`.
 
-<Canvas>
-    <Story id="componenti-steppers--navigation-of-the-steps" />
-</Canvas>
+<Canvas of={StepperStories.NavigationOfTheSteps}></Canvas>
 
 ## Varianti navigazione per mobile
 
@@ -92,9 +87,7 @@ realistico dell’aspetto finale.
 La `Progress` è quella nativa di Bootstrap 5 ed è contenuta in un `<div>` con classe `.steppers-progress` situato fra i
 pulsanti “Indietro” e “Avanti”.
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile--progress-bar" />
-</Canvas>
+<Canvas of={StepperNavigationStories.ProgressBar}></Canvas>
 
 ### Pallini
 
@@ -103,41 +96,31 @@ I pallini sono elementi `<li>` contenuti in un componente `StepperDots` situato 
 Per ragioni di accessibilità, i `<li>` devono contenere uno `<span>` con classe `.visually-hidden` riservato agli screen
 reader con un testo indicante il numero di step e lo stato.
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile--pallini" />
-</Canvas>
+<Canvas of={StepperNavigationStories.Pallini}></Canvas>
 
 ### Pulsante salva
 
 Su dispositivi mobili è possibile inserire un terzo pulsante “Salva” di aspetto differente con classe
 `.steppers-btn-save` fra i pulsanti “Indietro” e “Avanti”.
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile--save-button" />
-</Canvas>
+<Canvas of={StepperNavigationStories.SaveButton}></Canvas>
 
 ### Pulsante conferma
 
 Su dispositivi mobili è possibile sostituire il pulsante “Avanti” con un pulsante “Conferma” di stile differente, con la
 classe `.steppers-btn-confirm`.
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile--confirm-button" />
-</Canvas>
+<Canvas of={StepperNavigationStories.ConfirmButton}></Canvas>
 
 ## Versione su sfondo scuro
 
 Per ottenere una versione scura degli Stepper è sufficiente passare la prop `dark` al componente `StepperContainer`.
 
-<Canvas>
-    <Story id="componenti-steppers--version-on-a-dark-background" />
-</Canvas>
+<Canvas of={StepperStories.VersionOnADarkBackground}></Canvas>
 
 ### Varianti intestazione
 
-<Canvas>
-    <Story id="componenti-steppers--header-variants" />
-</Canvas>
+<Canvas of={StepperStories.HeaderVariants}></Canvas>
 
 ## Varianti navigazione per mobile - dark
 
@@ -145,30 +128,20 @@ Si raccomanda la visualizzazione in un viewport ridotto per ottenere un esempio 
 
 ### Progress bar
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile-dark-version--progress-bar-dark" />
-</Canvas>
+<Canvas of={StepperNavigationDarkStories.ProgressBarDark}></Canvas>
 
 ### Pallini
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile-dark-version--pallini-dark" />
-</Canvas>
+<Canvas of={StepperNavigationDarkStories.PalliniDark}></Canvas>
 
 ### Pulsante salva
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile-dark-version--save-button-dark" />
-</Canvas>
+<Canvas of={StepperNavigationDarkStories.SaveButtonDark}></Canvas>
 
 ### Pulsante conferma
 
-<Canvas>
-    <Story id="componenti-steppers-navigation-variations-for-mobile-dark-version--confirm-button-dark" />
-</Canvas>
+<Canvas of={StepperNavigationDarkStories.ConfirmButtonDark}></Canvas>
 
-## Argomenti componente
 
-### Steppers
 
-<ArgsTable of={StepperHeaderElement} />
+

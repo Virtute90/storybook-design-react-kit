@@ -1,9 +1,15 @@
 import { Button, Icon, Progress, StepperContainer, StepperContent, StepperDots, StepperNav } from "../../../src";
 import React from "react";
+import type {Meta, StoryObj} from "@storybook/react";
 
-export default {
-    title: "Componenti/Steppers/Navigation variations for mobile - dark version",
+const meta: Meta<typeof StepperContainer> = {
+  title: "Documentazione/Componenti/Stepper/Navigation variations for mobile - dark version",
+  component: StepperContainer
 };
+
+export default meta;
+
+type Story = StoryObj<typeof StepperContainer>;
 
 export const ProgressBarDark = () => {
     return (
