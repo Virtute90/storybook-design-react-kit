@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Toolbar, ToolbarItem } from "../Components/Toolbar.stories";
+import { Meta, Canvas } from "@storybook/blocks";
+import * as ToolbarStories from '../Components/Toolbar.stories';
 
-<Meta title="Documentazione/Menu di navigazione/Toolbar" of={Toolbar} />
+<Meta of={ToolbarStories} />
 
 # Toolbar
 
@@ -19,9 +19,7 @@ Per ottimizzare lo spazio disponibile l’elemento è fornito in tre versioni: g
 
 La versione predefinita dell’elemento è quella con icone grandi e label.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio" />
-</Canvas>
+<Canvas of={ToolbarStories.Esempio}></Canvas>
 
 ### Versione media
 
@@ -29,9 +27,7 @@ Applicando un attributo aggiuntivao `size="medium"` alla `Toolbar` si ottiene un
 
 In questo caso le label, nascoste visivamente, saranno contenute in uno `<span>` con classe `.visually-hidden`, per rendere disponibile la descrizione agli screen reader.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-medium" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioMedium}></Canvas>
 
 ### Versione piccola
 
@@ -39,9 +35,7 @@ Applicando un attributo aggiuntivao `size="small"` alla `Toolbar` si ottiene una
 
 In questo caso le label, nascoste visivamente, saranno contenute in uno `<span>` con classe `.visually-hidden`, per rendere disponibile la descrizione agli screen reader.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-small" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioSmall}></Canvas>
 
 ### Stato degli elementi
 
@@ -53,9 +47,7 @@ Gli elementi disabilitati avranno invece un attributo `disabled`. Il componente 
 
 Per aggiungere degli elementi divisori fra gli elementi utilizzare il componente `ToolbarItemDivider`.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-with-divider" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioWithDivider}></Canvas>
 
 ## Toolbar con Badge
 
@@ -65,25 +57,19 @@ I Badge possono essere utilizzati per indicare contenuti non letti o alert di va
 
 Nella versione grande i Badge possono contenere dei numeri. È possibile specificare una label che verrà mostrata agli screen reader.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-badge-grande" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConBadgeGrande}></Canvas>
 
 ### Media con Badge
 
 Nella versione media i badge non contengono numeri ma possono essere usati come alert generici. Il numero dei contenuti non letti o nuovi va indicato all’interno della label che verrà mostrata agli screen reader.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-badge-medio" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConBadgeMedio}></Canvas>
 
 ### Piccola con Badge
 
 Nella versione piccola i Badge non contengono numeri ma possono essere usati come alert generici. Il numero dei contenuti non letti o nuovi va indicato all’interno della label che verrà mostrata agli screen reader.
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-badge-piccolo" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConBadgePiccolo}></Canvas>
 
 ## Toolbar con Dropdown
 
@@ -94,21 +80,15 @@ Infine definire il contenuto del dropdown come JSX all'interno del componente `T
 
 ### Grande con Dropdown
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-dropdown-grande" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConDropdownGrande}></Canvas>
 
 ### Medio con Dropdown
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-dropdown-media" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConDropdownMedia}></Canvas>
 
 ### Piccolo con Dropdown
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-con-dropdown-piccola" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioConDropdownPiccola}></Canvas>
 
 ## Toolbar verticale
 
@@ -116,28 +96,14 @@ Applicando un attributo `vertical` alla Toolbar gli elementi vengono visualizzat
 
 ### Grande verticale
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-verticale-grande" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioVerticaleGrande}></Canvas>
 
 ### Medio verticale
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-verticale-media" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioVerticaleMedia}></Canvas>
 
 ### Piccolo verticale
 
-<Canvas>
-    <Story id="componenti-toolbar--esempio-verticale-piccola" />
-</Canvas>
+<Canvas of={ToolbarStories.EsempioVerticalePiccola}></Canvas>
 
-## Argomenti componente
 
-### Toolbar
-
-<ArgsTable of={Toolbar} />
-
-### ToolbarItem
-
-<ArgsTable of={ToolbarItem} />

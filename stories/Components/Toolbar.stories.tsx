@@ -1,6 +1,26 @@
 import React, { useState } from 'react';
 
-import { Toolbar, ToolbarItem, ToolbarDividerItem, DropdownMenu, LinkList, LinkListItem, Icon } from '../../src';
+import {
+  Toolbar,
+  ToolbarItem,
+  ToolbarDividerItem,
+  DropdownMenu,
+  LinkList,
+  LinkListItem,
+  Icon
+} from '../../src';
+import {Meta, StoryObj} from "@storybook/react";
+
+
+const meta: Meta<typeof Toolbar> = {
+  title: "Documentazione/Componenti/Toolbar",
+  component: Toolbar
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Toolbar>;
+
 
 export const Esempio = () => (
   <div className='toolbar-docs-style'>
@@ -636,7 +656,4 @@ export const EsempioVerticalePiccola = () => {
       </Toolbar>
     </div>
   );
-};
-export default {
-  title: 'Componenti/Toolbar'
 };
