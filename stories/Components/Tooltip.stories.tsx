@@ -1,7 +1,16 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-import type { Story } from '@storybook/react';
+import type {Meta, Story, StoryObj} from '@storybook/react';
 import React, { useRef, useState } from 'react';
 import { UncontrolledTooltip, Tooltip, Button } from '../../src';
+
+const meta: Meta<typeof Tooltip> = {
+  title: "Documentazione/Componenti/Tooltip",
+  component: Tooltip
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Tooltip>;
 
 export const Esempi = () => {
   const ref1 = useRef(null);
@@ -172,6 +181,7 @@ type EsempiInterattiviProps = {
   text: string;
 };
 
+// @ts-ignore
 export const _EsempiInterattivi: Story<EsempiInterattiviProps> = ({ placement, text }) => {
   const ref = useRef(null);
   return (
@@ -200,8 +210,4 @@ _EsempiInterattivi.argTypes = {
       options: ['top', 'bottom', 'left', 'right']
     }
   }
-};
-
-export default {
-  title: 'Componenti/Tooltip'
 };

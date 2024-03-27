@@ -1,13 +1,10 @@
 import { Canvas, Meta, Story } from "@storybook/blocks";
-import { Code } from "@storybook/components";
-import {
-  Callout,
-  CalloutText,
-  CalloutTitle,
-  Tooltip,
-} from "../Components/Tooltip.stories";
+import * as TooltipStories from '../Components/Tooltip.stories';
+import {Callout, CalloutText, CalloutTitle} from "../../src";
+import {Code} from "@storybook/components";
 
-<Meta title="Documentazione/Componenti/Tooltip" of={Tooltip} />
+
+<Meta of={TooltipStories} />
 
 # Tooltip
 
@@ -55,22 +52,16 @@ Per la maggior parte dei casi `UncontrolledTooltip` fornisce tutte le funzionali
 
 Passa il mouse sopra i link sottostanti per visualizzare i tooltip (con `UncontrolledTooltip`):
 
-<Canvas>
-  <Story id="componenti-tooltip--esempi" />
-</Canvas>
+<Canvas of={TooltipStories.Esempi}></Canvas>
 
 Qui trovi lo stesso esempio utilizzando il componente `Tooltip` con la gestione esplicita dello stato:
 
-<Canvas>
-  <Story id="componenti-tooltip--esempi-con-controllo" />
-</Canvas>
+<Canvas of={TooltipStories.EsempiConControllo}></Canvas>
 
 Passa il mouse sopra i bottoni sottostanti per vedere le quattro direzioni dei tooltip: sopra, destra, sotto, e sinistra.
 
-<Canvas>
-  <Story id="componenti-tooltip--posizioni" />
-</Canvas>
+<Canvas of={TooltipStories.Posizioni}></Canvas>
 
 ## Argomenti componente
 
-Fare riferimento alla documentazione reactstrap (v8) per maggiori dettagli sui componenti `Tooltip` e `UncontrolledTooltip`: https://deploy-preview-2356--reactstrap.netlify.app/components/tooltips/
+Fare riferimento alla documentazione reactstrap (v9) per maggiori dettagli sui componenti `Tooltip` e `UncontrolledTooltip`: https://reactstrap.github.io/?path=/docs/components-tooltip--tooltip
