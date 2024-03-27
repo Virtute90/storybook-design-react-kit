@@ -13,6 +13,17 @@ import {
   CardReadMore,
   TimelinePin
 } from '../../src';
+import {Meta, StoryObj} from "@storybook/react";
+
+
+const meta: Meta<typeof Timeline> = {
+  title: "Documentazione/Componenti/Timeline",
+  component: Timeline
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Timeline>;
 
 export const Esempi = () => (
   <div>
@@ -170,7 +181,3 @@ export const Esempi = () => (
     </Timeline>
   </div>
 );
-
-export default {
-  title: 'Componenti/Timeline'
-};

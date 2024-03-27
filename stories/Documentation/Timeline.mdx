@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Timeline, TimelinePin } from "../Components/Timeline.stories";
+import { Meta, Canvas } from "@storybook/blocks";
+import * as TimelineStories from '../Components/Timeline.stories';
 
-<Meta title="Documentazione/Componenti/Timeline" of={Timeline} />
+<Meta of={TimelineStories} />
 
 # Timeline
 
@@ -19,16 +19,4 @@ Il `TimelinePin` ha tre varianti indicati da attributi:
 -   `now` : per indicare nella timeline eventi collocati nel presente (azzurro)
 -   Nessun attributo aggiuntivo: per collocare gli eventi nel futuro. (azzurro chiaro)
 
-<Canvas>
-    <Story id="componenti-timeline--esempi" />
-</Canvas>
-
-## Argomenti componente
-
-### Timeline
-
-<ArgsTable of={Timeline} />
-
-### TimelinePin
-
-<ArgsTable of={TimelinePin} />
+<Canvas of={TimelineStories.Esempi}></Canvas>
