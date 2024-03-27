@@ -1,12 +1,8 @@
-import { Canvas, Meta, Story } from "@storybook/blocks";
-import {
-  Callout,
-  CalloutText,
-  CalloutTitle,
-  Table,
-} from "../Components/Tables.stories";
+import { Canvas, Meta } from "@storybook/blocks";
+import * as TablesStories from '../Components/Tables.stories';
+import {Callout, CalloutText, CalloutTitle} from "../../src";
 
-<Meta title="Documentazione/Organizzare i contenuti/Tabelle" of={Table} />
+<Meta of={TablesStories} />
 
 # Tabelle
 
@@ -16,71 +12,53 @@ import {
 
 Usando il markup di base della tabella, ecco come appaiono le tabelle che utilizzano il componente `Table`. **Tutti gli stili di tabella sono ereditari**, il che significa che tutte le tabelle nidificate saranno stilizzate nello stesso modo del genitore.
 
-<Canvas>
-  <Story id="componenti-tables--table-base" />
-</Canvas>
+<Canvas of={TablesStories.TableBase}></Canvas>
 
 Puoi anche invertire i colori, con testo chiaro su sfondi scuri con l'attributo `dark`.
 
-<Canvas>
-  <Story id="componenti-tables--table-dark" />
-</Canvas>
+<Canvas of={TablesStories.TableDark}></Canvas>
 
 ## Opzioni delle intestazioni di tabella
 
 Utilizzare le classi di modifica `.table-light` o `.table-dark` per far apparire `<thead>, <tbody>, <tfoot>, <tr>, <th> e <td>`. chiaro o grigio scuro.
 
-<Canvas>
-  <Story id="componenti-tables--table-thead" />
-</Canvas>
+<Canvas of={TablesStories.TableThead}></Canvas>
 
 ## Righe striate
 
 Usa l'attributo `striped` per aggiungere delle striature zebrate ad ogni riga della tabella contenute in `<tbody/>`.
 
-<Canvas>
-  <Story id="componenti-tables--table-striped" />
-</Canvas>
+<Canvas of={TablesStories.TableStriped}></Canvas>
 
 ## Tabella con bordi
 
 Usa l'attributo `bordered` per avere i bordi a tutti i lati della tabella e su tutte le celle.
 
-<Canvas>
-  <Story id="componenti-tables--table-bordered" />
-</Canvas>
+<Canvas of={TablesStories.TableBordered}></Canvas>
 
 ## Tabella senza bordi
 
 Usa l'attributo `borderless` per una tabella senza bordi.
 
-<Canvas>
-  <Story id="componenti-tables--table-borderless" />
-</Canvas>
+<Canvas of={TablesStories.TableBorderless}></Canvas>
 
 ## Righe ed hover
 
 Usa l'attributo `hover` per abilitare lo stato hover sulle righe della tabella contenute in `<tbody/>`.
 
-<Canvas>
-  <Story id="componenti-tables--table-hover" />
-</Canvas>
+<Canvas of={TablesStories.TableHover}></Canvas>
 
 ## Tabella compatta
 
 Aggiungi l'attributo `size="sm"` per rendere le tabelle più compatte dimezzando il cell padding.
 
-<Canvas>
-  <Story id="componenti-tables--table-compact" />
-</Canvas>
+<Canvas of={TablesStories.TableCompact}></Canvas>
 
 ## Classi contestuali
 
 Usa le classi contestuali per colorare le righe delle tabelle o le singole celle.
 
-<Canvas>
-  <Story id="componenti-tables--table-contextual" />
-</Canvas>
+<Canvas of={TablesStories.TableContextual}></Canvas>
 
 <div className="docs">
   <Callout color="success">
@@ -105,9 +83,7 @@ Usa le classi contestuali per colorare le righe delle tabelle o le singole celle
 
 Un `<caption/>` funziona come un’intestazione per una tabella. Aiuta gli utenti con screen reader a trovare una tabella e capire di cosa si tratta e decidere se vogliono leggerla.
 
-<Canvas>
-  <Story id="componenti-tables--table-captions" />
-</Canvas>
+<Canvas of={TablesStories.TableCaptions}></Canvas>
 
 # Tabelle responsive
 
@@ -143,14 +119,10 @@ Le tabelle responsive consentono di scorrere le tabelle orizzontalmente con faci
 
 Attraverso ogni breakpoint, usa l'attributo `responsive` per tabelle con scorrimento verticale.
 
-<Canvas>
-  <Story id="componenti-tables--table-responsive" />
-</Canvas>
+<Canvas of={TablesStories.TableResponsive}></Canvas>
 
 ## Breakpoint specifici
 
 Combina gli attributi `responsive` e `size` come necessario per creare tabelle responsive fino a un punto di interruzione particolare. Da quel punto di interruzione in su, la tabella si comporterà normalmente e non scorrerà orizzontalmente.
 
-<Canvas>
-  <Story id="componenti-tables--table-breakpoint" />
-</Canvas>
+<Canvas of={TablesStories.TableBreakpoint}></Canvas>

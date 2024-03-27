@@ -1,5 +1,15 @@
+// @ts-ignore
 import React from 'react';
 import { Table } from '../../src';
+import {Meta, StoryObj} from "@storybook/react";
+
+const meta: Meta<typeof TableBase> = {
+  title: "Documentazione/Componenti/Tables"
+};
+
+export default meta;
+
+type Story = StoryObj<typeof TableBase>;
 
 export const TableBase = () => (
   <Table>
@@ -626,7 +636,3 @@ export const TableBreakpoint = () => (
     </Table>
   </>
 );
-
-export default {
-  title: 'Componenti/Tables'
-};
