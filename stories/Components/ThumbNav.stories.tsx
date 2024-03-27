@@ -1,7 +1,16 @@
-import { Story } from '@storybook/react';
+import {Meta, Story, StoryObj} from '@storybook/react';
 import React from 'react';
 
-import { ThumbNav, ThumbNavItem } from '../../src';
+import {ThumbNav, ThumbNavItem} from '../../src';
+
+const meta: Meta<typeof ThumbNav> = {
+  title: "Documentazione/Componenti/ThumbNav",
+  component: ThumbNav
+};
+
+export default meta;
+
+type Story = StoryObj<typeof ThumbNav>;
 
 export const Esempio = () => (
   <ThumbNav>
@@ -267,7 +276,3 @@ export const EsempioAutoWidthThree: Story<EsempioAutoWidthProps> = EsempioAutoWi
 EsempioAutoWidthThree.args = { rowItems: 3 };
 export const EsempioAutoWidthFive: Story<EsempioAutoWidthProps> = EsempioAutoWidth.bind({});
 EsempioAutoWidthFive.args = { rowItems: 5 };
-
-export default {
-  title: 'Componenti/ThumbNav'
-};
