@@ -1,9 +1,18 @@
-import { Story } from "@storybook/react";
-import React from "react";
+import {type Meta, Story, type StoryObj} from "@storybook/react";
+import React, {useState} from "react";
 
-import { LinkList, LinkListItem, Sidebar, Icon } from "../../../src";
+import {LinkList, LinkListItem, Sidebar, Icon, Collapse} from "../../src";
 
-import SidebarCollapseExample from "./SidebarCollapsibleExample";
+
+const meta: Meta<typeof Sidebar> = {
+  title: "Documentazione/Componenti/Sidebar",
+  component: Sidebar
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Sidebar>;
+
 
 export const BasicSidebar: Story = () => (
     <Sidebar>
@@ -37,9 +46,6 @@ export const BasicSidebar: Story = () => (
     </Sidebar>
 );
 
-export default {
-    title: "Componenti/Sidebar",
-};
 
 export const _ConIcona: Story = () => (
     <Sidebar>
@@ -155,7 +161,6 @@ export const ConLineaASinistra: Story = () => (
 
 ConLineaASinistra.storyName = "Con linea a sinistra";
 
-export const _Annidata: Story = SidebarCollapseExample.bind({});
 
 export const SidebarVersioneScura: Story = () => (
     <Sidebar dark>
@@ -189,6 +194,115 @@ export const SidebarVersioneScura: Story = () => (
     </Sidebar>
 );
 
-_Annidata.storyName = "Sidebar annidata";
+
 
 SidebarVersioneScura.storyName = "Sidebar versione scura";
+
+
+export const _Annidata = () => {
+  const [collapseOpen1, toggleCollapse1] = useState(false);
+  const [collapseOpen2, toggleCollapse2] = useState(false);
+  const [collapseOpen3, toggleCollapse3] = useState(false);
+
+  return (
+    <Sidebar left>
+      <LinkList>
+        <LinkListItem
+          large
+          bold
+          className="right-icon"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleCollapse1(!collapseOpen1);
+          }}
+          aria-expanded={collapseOpen1}
+        >
+          <LinkListItem.TitleIconWrapper>
+            <span>Link list 1 </span>
+            <Icon className="right" icon="it-expand" color="primary" aria-hidden />
+          </LinkListItem.TitleIconWrapper>
+        </LinkListItem>
+        <Collapse isOpen={collapseOpen1}>
+          <LinkList sublist>
+            <LinkListItem>
+              <span>Link list 4 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 5 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 6 </span>
+            </LinkListItem>
+          </LinkList>
+        </Collapse>
+        <LinkListItem
+          large
+          bold
+          className="right-icon"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleCollapse2(!collapseOpen2);
+          }}
+          aria-expanded={collapseOpen2}
+        >
+          <LinkListItem.TitleIconWrapper>
+            <span>Link list 2 </span>
+            <Icon className="right" icon="it-expand" color="primary" aria-hidden />
+          </LinkListItem.TitleIconWrapper>
+        </LinkListItem>
+        <Collapse isOpen={collapseOpen2}>
+          <LinkList sublist>
+            <LinkListItem>
+              <span>Link list 7 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 8 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 9 </span>
+            </LinkListItem>
+          </LinkList>
+        </Collapse>
+        <LinkListItem
+          large
+          bold
+          className="right-icon"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleCollapse3(!collapseOpen3);
+          }}
+          aria-expanded={collapseOpen3}
+        >
+          <LinkListItem.TitleIconWrapper>
+            <span>Link list 3 </span>
+            <Icon className="right" icon="it-expand" color="primary" aria-hidden />
+          </LinkListItem.TitleIconWrapper>
+        </LinkListItem>
+        <Collapse isOpen={collapseOpen3}>
+          <LinkList sublist>
+            <LinkListItem>
+              <span>Link list 10 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 11 </span>
+            </LinkListItem>
+            <LinkListItem>
+              <span>Link list 12 </span>
+            </LinkListItem>
+          </LinkList>
+        </Collapse>
+        <Sidebar secondary />
+        <LinkListItem>
+          <span>Secondary item</span>
+        </LinkListItem>
+        <LinkListItem active>
+          <span>Secondary item active</span>
+        </LinkListItem>
+        <LinkListItem disabled>
+          <span>Secondary item disabled</span>
+        </LinkListItem>
+      </LinkList>
+    </Sidebar>
+  );
+};
+_Annidata.storyName = "Sidebar annidata";

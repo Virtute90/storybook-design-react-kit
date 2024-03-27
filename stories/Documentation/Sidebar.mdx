@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { Sidebar } from "../Components/Sidebar/Sidebar.stories";
+import { Meta, Canvas, Story } from "@storybook/blocks";
+import * as SidebarStories from '../Components/Sidebar.stories';
 
-<Meta title="Documentazione/Menu di navigazione/Sidebar" of={Sidebar} />
+<Meta of={SidebarStories} />
 
 # Sidebar
 
@@ -19,15 +19,13 @@ La sidebar semplice può contenere:
 
 Per differenziare a livello stilistico i link secondari, è sufficiente aggiungere l'attributo `secondary` al componente `Sidebar` contenente la [lista di link](?path=/docs/documentazione-organizzare-i-contenuti-linklist).
 
-<Canvas>
-    <Story id="componenti-sidebar--basic-sidebar" />
-</Canvas>
+<Canvas of={SidebarStories.BasicSidebar}></Canvas>
 
 #### Con icona
 
 La sidebar può contenere icone nella sua [lista di link](?path=/docs/documentazione-organizzare-i-contenuti-linklist) primaria.
 
-<Canvas>
+<Canvas of={SidebarStories._ConIcona}>
     <Story id="componenti-sidebar--con-icona" />
 </Canvas>
 
@@ -35,17 +33,13 @@ La sidebar può contenere icone nella sua [lista di link](?path=/docs/documentaz
 
 Per creare una sidebar con linea separatrice a destra è sufficiente aggiungere l'attributo `right` al componente `Sidebar`.
 
-<Canvas>
-    <Story id="componenti-sidebar--con-linea-a-destra" />
-</Canvas>
+<Canvas of={SidebarStories.ConLineaADestra}></Canvas>
 
 #### Con linea a sinistra
 
 Per creare una sidebar con linea separatrice a sinistra è sufficiente aggiungere l'attributo `left` al componente `Sidebar`.
 
-<Canvas>
-    <Story id="componenti-sidebar--con-linea-a-sinistra" />
-</Canvas>
+<Canvas of={SidebarStories.ConLineaASinistra}></Canvas>
 
 ### Annidata
 
@@ -53,20 +47,10 @@ Per creare una sidebar con linea separatrice a sinistra è sufficiente aggiunger
 
 La sidebar può contenere una [lista di link](?path=/docs/documentazione-organizzare-i-contenuti-linklist) primaria annidata.
 
-<Canvas>
-    <Story id="componenti-sidebar--annidata" />
-</Canvas>
+<Canvas of={SidebarStories._Annidata}></Canvas>
 
 ### Sidebar versione scura
 
 Per cambiare il tema della sidebar e renderla scura è sufficiente aggiungere al componente `Sidebar` l'attributo `dark`.
 
-<Canvas>
-    <Story id="componenti-sidebar--sidebar-versione-scura" />
-</Canvas>
-
-## Argomenti componente
-
-### Sidebar
-
-<ArgsTable of={Sidebar} />
+<Canvas of={SidebarStories.SidebarVersioneScura}></Canvas>
