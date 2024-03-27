@@ -1,6 +1,28 @@
-import React from "react";
+import React, {MouseEventHandler, useState} from "react";
 
-import { LinkList, LinkListItem, Icon, NavItem, NavLink, Navbar } from "../../../src";
+import {
+  LinkList,
+  LinkListItem,
+  Icon,
+  NavItem,
+  NavLink,
+  Navbar,
+  Collapse,
+  Toggle,
+  FormGroup,
+  Input,
+  Label
+} from "../../../src";
+import {Meta, StoryObj} from "@storybook/react";
+
+const meta: Meta<typeof LinkList> = {
+  title: "Documentazione/Organizzare i contenuti/Liste",
+  component: LinkList
+};
+
+export default meta;
+
+type Story = StoryObj<typeof LinkList>;
 
 export const TitoloLista = () => {
     return (
@@ -53,10 +75,6 @@ export const TitoloLista = () => {
             </Navbar>
         </div>
     );
-};
-
-export default {
-    title: "Componenti/LinkList",
 };
 
 export const _Esempi = () => (
@@ -193,4 +211,252 @@ export const EsempioMultiline = () => (
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit…</p>
         </LinkListItem>
     </LinkList>
+);
+
+
+export const CollapseExample = () => {
+  const [collapseOpen1, toggleCollapse1] = useState(false);
+  const [collapseOpen2, toggleCollapse2] = useState(false);
+  const [collapseOpen3, toggleCollapse3] = useState(false);
+
+  const onToggle1: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    toggleCollapse1(!collapseOpen1);
+  };
+
+  const onToggle2: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    toggleCollapse2(!collapseOpen2);
+  };
+
+  const onToggle3: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    toggleCollapse3(!collapseOpen3);
+  };
+
+  const expanded = {
+    "aria-expanded": true,
+  };
+  return (
+    <LinkList>
+      <LinkListItem bold large className="icon-right" onClick={onToggle1} {...(collapseOpen1 ? expanded : {})}>
+        <LinkListItem.TitleIconWrapper>
+          <span>Link list 1 </span>
+          <Icon className="right" color="primary" icon="it-expand" aria-hidden />
+        </LinkListItem.TitleIconWrapper>
+      </LinkListItem>
+      <Collapse isOpen={collapseOpen1}>
+        <LinkList sublist>
+          <LinkListItem>
+            <span>Link list 4 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 5 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 6 </span>
+          </LinkListItem>
+        </LinkList>
+      </Collapse>
+      <LinkListItem bold large className="icon-right" onClick={onToggle2} {...(collapseOpen2 ? expanded : {})}>
+        <LinkListItem.TitleIconWrapper>
+          <span>Link list 2 </span>
+          <Icon className="right" color="primary" icon="it-expand" aria-hidden />
+        </LinkListItem.TitleIconWrapper>
+      </LinkListItem>
+      <Collapse isOpen={collapseOpen2}>
+        <LinkList sublist>
+          <LinkListItem>
+            <span>Link list 7 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 8 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 9 </span>
+          </LinkListItem>
+        </LinkList>
+      </Collapse>
+      <LinkListItem bold large className="icon-right" onClick={onToggle3} {...(collapseOpen3 ? expanded : {})}>
+        <LinkListItem.TitleIconWrapper>
+          <span>Link list 3 </span>
+          <Icon className="right" color="primary" icon="it-expand" aria-hidden />
+        </LinkListItem.TitleIconWrapper>
+      </LinkListItem>
+      <Collapse isOpen={collapseOpen3}>
+        <LinkList sublist>
+          <LinkListItem>
+            <span>Link list 10 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 11 </span>
+          </LinkListItem>
+          <LinkListItem>
+            <span>Link list 12 </span>
+          </LinkListItem>
+        </LinkList>
+      </Collapse>
+    </LinkList>
+  );
+};
+
+export const NavigationComponentFixed = () => (
+  <LinkList>
+    <LinkListItem bold large className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 1 </span>
+        <Icon icon="it-link" color="primary" className="right" />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem bold large className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 2 </span>
+        <Icon icon="it-link" color="primary" className="right" />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkList sublist>
+      <LinkListItem>
+        <span>Link list 4 </span>
+      </LinkListItem>
+      <LinkListItem>
+        <span>Link list 5 </span>
+      </LinkListItem>
+      <LinkListItem>
+        <span>Link list 6 </span>
+      </LinkListItem>
+    </LinkList>
+    <LinkListItem bold large className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 3 </span>
+        <Icon icon="it-link" color="primary" className="right" />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+  </LinkList>
+);
+
+
+export const ControlliComponent = () => (
+  <LinkList>
+    <LinkListItem active className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-chevron-right" aria-hidden />
+        <span>Link list 1 active</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-chevron-right" aria-hidden />
+        <span>Link list 2</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem disabled className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-chevron-right" aria-hidden />
+        <span>Link list 3 disabled</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+  </LinkList>
+);
+
+export const ControlliSecondariComponent = () => (
+  <LinkList>
+    <LinkListItem active className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 1 active</span>
+        <Icon color="primary" icon="it-link" aria-hidden />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 2</span>
+        <Icon color="primary" icon="it-link" aria-hidden />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem disabled className="icon-right">
+      <LinkListItem.TitleIconWrapper>
+        <span>Link list 3 disabled</span>
+        <Icon color="primary" icon="it-link" aria-hidden />
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+  </LinkList>
+);
+
+export const PrimaryESecondaryAction = () => (
+  <LinkList>
+    <LinkListItem active className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-link" aria-hidden />
+        <span>Link list 1 active</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-link" aria-hidden />
+        <span>Link list 2</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+    <LinkListItem disabled className="icon-left">
+      <LinkListItem.TitleIconWrapper>
+        <Icon color="primary" icon="it-link" aria-hidden />
+        <span>Link list 3 disabled</span>
+      </LinkListItem.TitleIconWrapper>
+    </LinkListItem>
+  </LinkList>
+);
+
+export const ConAvatar = () => (
+  <LinkList>
+    <LinkListItem active>
+      <img className="avatar lg-size" src="http://via.placeholder.com/40x40" title="avatartitle" alt="avataralt" />
+      <span>Link list 1 active </span>
+    </LinkListItem>
+    <LinkListItem>
+      <img className="avatar lg-size" src="http://via.placeholder.com/40x40" title="avatartitle" alt="avataralt" />
+      <span>Link list 2 </span>
+    </LinkListItem>
+    <LinkListItem disabled>
+      <img className="avatar lg-size" src="http://via.placeholder.com/40x40" title="avatartitle" alt="avataralt" />
+      <span>Link list 3 disabled </span>
+    </LinkListItem>
+  </LinkList>
+);
+
+export const ConSwitch = () => (
+  <LinkList>
+    <LinkListItem tag="div" active>
+      <Toggle label="Label per toggle" />
+    </LinkListItem>
+    <LinkListItem tag="div" disabled>
+      <Toggle disabled label="Label per disabled toggle" />
+    </LinkListItem>
+  </LinkList>
+);
+
+export const ConCheckbox = () => (
+  <LinkList>
+    <LinkListItem tag="div" active>
+      <FormGroup check className="form-check-group">
+        <Input id="checkbox1" type="checkbox" defaultChecked />
+        <Label for="checkbox1" check>
+          Checkbox selezionato
+        </Label>
+      </FormGroup>
+    </LinkListItem>
+    <LinkListItem tag="div" active>
+      <FormGroup check className="form-check-group">
+        <Input id="checkbox2" type="checkbox" />
+        <Label for="checkbox2" check>
+          Checkbox non selezionato
+        </Label>
+      </FormGroup>
+    </LinkListItem>
+    <LinkListItem tag="div" disabled>
+      <FormGroup check className="form-check-group">
+        <Input id="checkbox3" type="checkbox" disabled />
+        <Label for="checkbox3" check>
+          Checkbox disabilitato non selezionato
+        </Label>
+      </FormGroup>
+    </LinkListItem>
+  </LinkList>
 );

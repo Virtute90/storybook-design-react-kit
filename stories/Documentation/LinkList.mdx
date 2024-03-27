@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Canvas, Story } from "@storybook/blocks";
-import { LinkList, LinkListItem } from "../Components/LinkList/LinkList.stories";
+import { Meta, Canvas } from "@storybook/blocks";
+import * as LinkListStories from '../Components/LinkList/LinkList.stories';
 
-<Meta title="Documentazione/Organizzare i contenuti/LinkList" of={LinkList} />
+<Meta of={LinkListStories} />
 
 # Liste di link
 
@@ -9,25 +9,19 @@ import { LinkList, LinkListItem } from "../Components/LinkList/LinkList.stories"
 
 ## Single Line
 
-<Canvas>
-    <Story id="componenti-linklist--esempi" />
-</Canvas>
+<Canvas of={LinkListStories._Esempi}></Canvas>
 
 ## Single line - elemento con stato attivo
 
 Per determinare l’elemento attivo è sufficiente aggiungere il modificatore `active` al relativo componente `LinkListItem`
 
-<Canvas>
-    <Story id="componenti-linklist--stato-attivo" />
-</Canvas>
+<Canvas of={LinkListStories._StatoAttivo}></Canvas>
 
 ## Single line - elemento con stato disabilitato
 
 Per determinare l’elemento attivo è sufficiente aggiungere il modificatore `disabled` al relativo componente `LinkListItem`
 
-<Canvas>
-    <Story id="componenti-linklist--stato-disabilitato" />
-</Canvas>
+<Canvas of={LinkListStories._StatoDisabilitato}></Canvas>
 
 ## Single line con header e divider
 
@@ -37,23 +31,17 @@ Il separatore è costituito dal componente `LinkListItem` con il modificatore `d
 
 #### Header senza link
 
-<Canvas>
-    <Story id="componenti-linklist--header-e-divider-no-link" />
-</Canvas>
+<Canvas of={LinkListStories.HeaderEDividerNoLink}></Canvas>
 
 #### Header con link
 
-<Canvas>
-    <Story id="componenti-linklist--header-e-divider-con-link" />
-</Canvas>
+<Canvas of={LinkListStories.HeaderEDividerConLink}></Canvas>
 
 ## Sizing
 
 Per ogni componente `LinkListItem` è possibile definire una variante di dimensione maggiore utilizzando il modificatore `large` e `bold` per dare un aspetto maggiorato all'elemento.
 
-<Canvas>
-    <Story id="componenti-linklist--sizing" />
-</Canvas>
+<Canvas of={LinkListStories.Sizing}></Canvas>
 
 ## Multiline
 
@@ -68,16 +56,72 @@ Per aggiungere un icona bisogna aggiungere al componente `LinkListItem` la class
 
 All’interno del componente `LinkListItem` subito dopo lo `<span/>` contenente il testo, puoi inserire il componente `Icon` (per maggiori informazioni consulta la sezione icone).
 
-<Canvas>
-    <Story id="componenti-linklist--esempio-multiline" />
-</Canvas>
+<Canvas of={LinkListStories.EsempioMultiline}></Canvas>
 
-## Argomenti componente
 
-### LinkList
+### Avatar
 
-<ArgsTable of={LinkList} />
+Per aggiungere un avatar a sinistra del testo bisogna aggiungere al `LinkListItem` la classe: `avatar`.
 
-### LinkListItem
+All’interno del `LinkListItem` subito prima dello `<span>` contenente il testo, andremo ad inserire il tag `<img>` con classe `avatar`.
 
-<ArgsTable of={LinkListItem} />
+<Canvas of={LinkListStories.ConAvatar}></Canvas>
+
+## List con controlli
+
+I `LinkList` con controlli sono caratterizzati da icone a destra e sinistra del testo
+Quella di destra descrittiva e quella di sinistra un eventuale azione aggiuntiva da gestire in JavaScript.
+
+### Primary Action
+
+#### Icona sinistra
+
+Per aggiungere un icona a sinistra del testo bisogna aggiungere al `<LinkListItem>` la classe: `icon-left`.
+
+All’interno del `<LinkListItem>` subito prima dello `<span>` contenente il testo, andremo ad inserire il tag `<i>` con classi `left` (per definirne la posizione) e classe `it-(classe icona)` per determinare quale icona inserire.
+
+<Canvas of={LinkListStories.ControlliComponent}></Canvas>
+
+
+#### Icona destra
+
+Per aggiungere un'icona a destra del testo bisogna aggiungere al `LinkListItem` la classe: `icon-right`.
+
+All’interno del `LinkListItem` subito prima dello `<span>` contenente il testo, andremo ad inserire il tag `<i>` con classi `right` (per definirne la posizione) e classe `it-(classe icona)` per determinare quale icona inserire.
+
+<Canvas of={LinkListStories.ControlliSecondariComponent}></Canvas>
+
+
+#### Icona sinistra
+
+Per aggiungere un'icona a sinistra del testo bisogna aggiungere al `LinkListItem` la classe: `icon-left`.
+
+All’interno del `LinkListItem` subito prima dello `<span>` contenente il testo, andremo ad inserire il tag `<i>` con classi `left` (per definirne la posizione) e classe `it-(classe icona)` per determinare quale icona inserire.
+
+
+<Canvas of={LinkListStories.PrimaryESecondaryAction}></Canvas>
+
+### Collassabile
+
+Di seguito un esempio di navigazione annidiata collassabile.
+Per questo tipo di link list è stato utilizzato, oltre alle classi custom, il componente `<Collapse>`.
+
+<Canvas of={LinkListStories.CollapseExample}></Canvas>
+
+### Switch e Checkbox
+Un `LinkList` può contenere anche elementi form, di seguito un esempio contenente uno switch generato da un `<Toggle>`.
+
+<Canvas of={LinkListStories.ConSwitch}></Canvas>
+
+<Canvas of={LinkListStories.ConCheckbox}></Canvas>
+
+
+## Nested navigation
+
+I `LinkList` possono contenere link con sottosezione espanse di default o collassabili.
+
+#### Fixed
+
+Di seguito un esempio di navigazione annidiata espansa di default.
+
+<Canvas of={LinkListStories.NavigationComponentFixed}></Canvas>
